@@ -13,9 +13,9 @@ A **Info Rio Sistemas**, nosso cliente, precisa de uma aplicação Help Desk que
 🙎‍♀️🙎🏻‍♀️🙎🏼‍♀️🙎🏽‍♀️🙎🏾‍♀️🙎🏿‍♀️  QUEM SÃO OS USUÁRIOS DA NOSSA APLICAÇÃO? 🙎‍♂️🙎🏻‍♂️🙎🏼‍♂️🙎🏽‍♂️🙎🏾‍♂️🙎🏿‍♂️ 
 </div>
 
-1) João um FUNCIONÁRIO da **Info Rio Sistemas**, ele precisa de um aplicação que facilite o gerenciamento dos seus chamados e torne seu trabalho mais ágil.
+1) **João** um FUNCIONÁRIO da **Info Rio Sistemas**, ele precisa de um aplicação que facilite o gerenciamento dos seus chamados e torne seu trabalho mais ágil.
    
-2) Maria uma CLIENTE da **Info Rio Sistemas**, gostaria de um serviço de atendimento ao cliente facilato, onde seria possível abrir e acompanhar chamados de forma simples e ágil.
+2) **Maria** uma CLIENTE da **Info Rio Sistemas**, gostaria de um serviço de atendimento ao cliente facilato, onde seria possível abrir e acompanhar chamados de forma simples e ágil.
 
 ## Requisitos do projeto: 
 
@@ -95,9 +95,12 @@ Nesse campo pode ser descrito um pequeno tutorial de como terceiros podem starta
 | Perfil | Nome | Função | Github | Linkedin |
 | :----------------: | :-----: | :---------: | :---------: | :---------: |
 | <img width="100" alt="Foto Advalker" src="imagens/advalker.jpeg"> | `Advalker Souto` | Desenvolvedor <br> Back-end | <a href="https://github.com/Advalker"> <img height="80" alt="GitHub Advalker" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/advalker-l-s-maior-5436a520a/"><img height="80" alt="linkedin Advalker" src="imagens/linkedln.png"></a> |
+| <img width="100" alt="Foto Matheus" src="imagens/Daniela.jpeg"> | `Daniela Xavier` | Desenvolvedora Back-end | <a href="https://github.com/DanielaXavier1995"> <img height="80" alt="GitHub Daniela" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/dani-xavier/"><img height="80" alt="linkedin Matheus" src="imagens/linkedln.png"></a> |
 | <img width="100" alt="Foto Luiz" src="imagens/luiz.jpeg"> | `Luiz Cláudio` | Desenvolvedor Back-end <br> Q.A| <a href="https://github.com/LuizClaudioPestana"><img height="80" alt="GitHub Luiz" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/luizclaudiopestana/"><img height="80" alt="linkedin Luiz" src="imagens/linkedln.png"></a> |
 | <img width="100" alt="Foto Marcelo" src="imagens/marcelo.jpeg"> | `Marcelo Mendonça` | Desenvolvedor <br> Back-end | <a href="https://github.com/mclmendonca"> <img height="80" alt="GitHub Marcelo" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href=""> <img height="80" alt="linkedin Marcelo" src="imagens/linkedln.png"></a> | 
 | <img width="100" alt="Foto Matheus" src="imagens/Matheus.jpg"> | `Matheus Monteiro` | Teach Lead <br> Desenvolvedor Back-end | <a href="https://github.com/matheus-monteiro97"> <img height="80" alt="GitHub Matheus" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/matheus-monteiro97/"><img height="80" alt="linkedin Matheus" src="imagens/linkedln.png"></a> |
+
+
 
 
 
