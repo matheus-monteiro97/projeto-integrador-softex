@@ -33,10 +33,15 @@ A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de 
 2) Funcionalidade de Login: Inserção de e-mail e senha do João com checagem no banco e validação via JWT, além de link "esqueceu a senha". ???
 3) Alteração de Senha: permite alteração da senha pelo João, basta inserir e-mail, senha atual, e senha a que deseja implementar. ????
 
-**CHAMADOS**: 
-Banco de Dados: Nome da empresa, funcionário, título, serviço utilizado, problema, descrição, técnico responsável, prioridade, status, solução. 
-Ordem de Chamados: Inicialmente os chamados devem aparecer em ordem de prioridade (Baixa, média ou alta), podendo modificar para ordem cronológica. Os chamados já fechados não aparecerão inicialmente, a não ser que o usuário modifique para visualizar. 
+**CHAMADOS -> Solicitado por Maria e vizualidado por João**: 
+1) Dados dos Chamados: Nome da empresa que Maria trabalha, funcionário (Maria), título, serviço utilizado, problema, descrição, técnico responsável (João), prioridade, status, solução. 
+2) Ordenação de Chamados: Os chamados serão ordenados por prioridade (Baixa, média ou alta) e os chamados fechados não poderão ser vizualizados, porém caso Maria precise pode modificar a ordem de prioridade dos chamados para cronológica e solicitar a vizualização de chamados fechados.
 
+**Funcionalidades dos chamados para Maria:**
+1) Abertura: Maria está apta para abrir os chamados e inserir todos os campos, exceto: Técnico Responsável, Solução e Status.
+**Observação:** O nome da empresa e funcionário serão inseridos automaticamente, assim que Maria se logar na aplicação. 
+2) Acompanhamento: Maria poderá ter acesso exclusivamente aos chamados abertos pela empresa a qual trabalha. 
+Atualização de Chamado: Os clientes poderão atualizar todos os campos aos quais possui permissão para inserir na abertura de chamados. 
 
 
 ## Modelagem: 
