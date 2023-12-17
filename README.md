@@ -2,52 +2,68 @@
 O **Fap Desk** é um serviço de atendimento ao cliente que possui como característica primordial a centralização de solicitações em uma única plataforma virtual facilitando o gerenciamento de chamados. 
 A ideia se basia no funcionamento de um software help desk permitindo que os chamados sejam classificados em ordem de importância. Priorizando sempre as solicitações mais urgentes antes.
 
-## Necessidades do Cliente:
+<div align="middle">
+   
+ ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+ 
+</div> 
+
+## Necessidades do Cliente: 💭
 A **Info Rio Sistemas**, nosso cliente, precisa de uma aplicação Help Desk que possibilite:
 1) Auxiliar no registro das solicitações de atendimento dos seus clientes para com seus respectivos produtos;
 2) Permita o gerenciamento destes atendimentos por parte de seus colaboradores;
 3) Proporcione aos seus clientes uma experência agradável, desde o momento da solicitação do chamado até o seu fechamento;
    
-## Usuários do Fap Desk: 
+## Usuários do Fap Desk: 🧍‍♂️🧍‍♀️
+
 <div align="middle">
+
 🙎‍♀️🙎🏻‍♀️🙎🏼‍♀️🙎🏽‍♀️🙎🏾‍♀️🙎🏿‍♀️  QUEM SÃO OS USUÁRIOS DA NOSSA APLICAÇÃO? 🙎‍♂️🙎🏻‍♂️🙎🏼‍♂️🙎🏽‍♂️🙎🏾‍♂️🙎🏿‍♂️ 
+
 </div>
 
 1) **João** um FUNCIONÁRIO da **Info Rio Sistemas**, ele precisa de um aplicação que facilite o gerenciamento dos seus chamados e torne seu trabalho mais ágil.
    
 2) **Maria** uma CLIENTE da **Info Rio Sistemas**, gostaria de um serviço de atendimento ao cliente facilato, onde seria possível abrir e acompanhar chamados de forma simples e ágil.
 
-## Requisitos do projeto: 
+## Requisitos do projeto: 📚
 
 A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de arquitetura **MVC - Model, View, Controller**.
 
-**MARIA -> cliente da Info Rio Sistemas:**
+📌 **MARIA -> cliente da Info Rio Sistemas:**
 * `Funcionalidade de Cadastro`: nome, telefone, e-mail, senha (com criptografia via hash), nome e endereço da empresa que Maria trabalha. 
 * `Funcionalidade de Login`: inserção de e-mail e senha da Maria com checagem no banco e validação via JWT, além de link "esqueceu a senha". ???
 * `Funcionalidade de Alteração de Senha`: permite alteração da senha pela Maria, basta inserir e-mail, senha atual, e senha a que deseja implementar. ????
 
-**JOÃO -> funcionário da Info Rio Sistemas:**
+📌 **JOÃO -> funcionário da Info Rio Sistemas:**
 * `Funcionalidade de Cadastro`: Nome, função na Info Rio Sistemas, documento de identificação, telefone, e-mail, senha (com criptografia via hash).
 * `Funcionalidade de Login`: Inserção de e-mail e senha do João com checagem no banco e validação via JWT, além de link "esqueceu a senha". ???
 * `Alteração de Senha`: permite alteração da senha pelo João, basta inserir e-mail, senha atual, e senha a que deseja implementar. ????
 
-**CHAMADOS -> Solicitado por Maria e vizualidado por João**: 
+📌 **CHAMADOS -> Solicitado por Maria e vizualidado por João**: 
 * `Dados dos Chamados`: Nome da empresa que Maria trabalha, funcionário (Maria), título, serviço utilizado, problema, descrição, técnico responsável (João), prioridade, status, solução. 
 * `Ordenação de Chamados`: Os chamados serão ordenados por prioridade (Baixa, média ou alta) e os chamados fechados não poderão ser vizualizados, porém caso Maria precise, pode modificar a ordem de prioridade dos chamados para cronológica e solicitar a vizualização de chamados fechados.
 
-**Funcionalidades dos chamados para MARIA:**
+📌 **Funcionalidades dos chamados para MARIA:**
 * `Abertura`: Maria está apta para abrir os chamados e inserir todos os campos, **exceto**: Técnico Responsável, Solução e Status.
 **Observação:** O nome da empresa e funcionário serão inseridos automaticamente, assim que Maria se logar na aplicação. 
 * `Acompanhamento`: Maria poderá ter acesso exclusivamente aos chamados abertos pela empresa a qual trabalha. 
 * `Atualização`: Maria poderá atualizar todos os campos aos quais possui permissão no momento da abertura de chamados.
 
-**Funcionalidades dos chamados para JOÃO:**
+📌 **Funcionalidades dos chamados para JOÃO:**
 * `Abertura`: João terá acesso a **todos** os campos para abertura de chamados.  ????
 * `Acompanhamento`: João terá acesso a **todos**, incluindo aqueles delegados aos seus colegas técnicos da Info Rio Sistemas. 
 * `Atualização`: O João poderá atualizar **todos** os chamados, incluindo aqueles delegados aos seus colegas técnicos Info Rio Sistemas. 
 
-## Modelagem dos dados: 
-Mostrar o diagrama entidade/relacionamento.
+## Modelo Entidade-Relacionamento (ER): 
+
+
+<div align="middle">
+
+![modele_db](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/18569a66-983f-4568-ad64-5d3dc0ffacd8)
+
+</div>
+
 
 ## Tecnologias utilizadas: 🛠️
 
@@ -67,7 +83,7 @@ Mostrar o diagrama entidade/relacionamento.
 
 -> **Hospedagem em nuvem**: Vercel ou Render;
 
--> **Versionamento:** Git & GitHub
+-> **Versionamento:** Git & GitHub;
 
 <div align="middle">
   
@@ -82,15 +98,15 @@ Mostrar o diagrama entidade/relacionamento.
 
 </div>
 
-## Acesso ao projeto: 📁
+## Acesso ao projeto: 📁  **FINALIZAR**
  -> Como baixar o projeto;
  
  -> Link da aplicação em nuvem;
 
-## Abrir e rodar o projeto: 🛠️
+## Abrir e rodar o projeto: 🛠️  **FINALIZAR**
 Nesse campo pode ser descrito um pequeno tutorial de como terceiros podem startar a aplicação (indicar as bibliotecas que precisam ser baixadas por exemplo)
 
-## Equipe Técnica:
+## Equipe Técnica: 👨‍💻 👩‍💻
 
 | Perfil | Nome | Função | Github | Linkedin |
 | :----------------: | :-----: | :---------: | :---------: | :---------: |
