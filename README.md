@@ -24,7 +24,7 @@ A **Info Rio Sistemas**, nosso cliente, precisa de uma aplicação Help Desk que
 A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de arquitetura **MVC - Model, View, Controller**.
 
 **MARIA -> cliente da Info Rio Sistemas:**
-1) Funcionalidade de Cadastro: nome, telefone, e-mail, senha (com criptografia via hash), nome e endereço da empresa que Maria trabalha. 
+1) `Funcionalidade de Cadastro`: nome, telefone, e-mail, senha (com criptografia via hash), nome e endereço da empresa que Maria trabalha. 
 2) Funcionalidade de Login: inserção de e-mail e senha da Maria com checagem no banco e validação via JWT, além de link "esqueceu a senha". ???
 3) Funcionalidade de Alteração de Senha: permite alteração da senha pela Maria, basta inserir e-mail, senha atual, e senha a que deseja implementar. ????
 
@@ -35,28 +35,39 @@ A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de 
 
 **CHAMADOS -> Solicitado por Maria e vizualidado por João**: 
 1) Dados dos Chamados: Nome da empresa que Maria trabalha, funcionário (Maria), título, serviço utilizado, problema, descrição, técnico responsável (João), prioridade, status, solução. 
-2) Ordenação de Chamados: Os chamados serão ordenados por prioridade (Baixa, média ou alta) e os chamados fechados não poderão ser vizualizados, porém caso Maria precise pode modificar a ordem de prioridade dos chamados para cronológica e solicitar a vizualização de chamados fechados.
+2) Ordenação de Chamados: Os chamados serão ordenados por prioridade (Baixa, média ou alta) e os chamados fechados não poderão ser vizualizados, porém caso Maria precise, pode modificar a ordem de prioridade dos chamados para cronológica e solicitar a vizualização de chamados fechados.
 
-**Funcionalidades dos chamados para Maria:**
-1) Abertura: Maria está apta para abrir os chamados e inserir todos os campos, exceto: Técnico Responsável, Solução e Status.
+**Funcionalidades dos chamados para MARIA:**
+1) Abertura: Maria está apta para abrir os chamados e inserir todos os campos, **exceto**: Técnico Responsável, Solução e Status.
 **Observação:** O nome da empresa e funcionário serão inseridos automaticamente, assim que Maria se logar na aplicação. 
 2) Acompanhamento: Maria poderá ter acesso exclusivamente aos chamados abertos pela empresa a qual trabalha. 
-Atualização de Chamado: Os clientes poderão atualizar todos os campos aos quais possui permissão para inserir na abertura de chamados. 
+3) Atualização: Maria poderá atualizar todos os campos aos quais possui permissão no momento da abertura de chamados.
 
+**Funcionalidades dos chamados para JOÃO:**
+1) Abertura: João terá acesso a **todos** os campos para abertura de chamados.  ????
+2) Acompanhamento: João terá acesso a **todos**, incluindo aqueles delegados aos seus colegas técnicos da Info Rio Sistemas. 
+3) Atualização: O João poderá atualizar **todos** os chamados, incluindo aqueles delegados aos seus colegas técnicos Info Rio Sistemas. 
 
-## Modelagem: 
+## Modelagem dos dados: 
 Mostrar o diagrama entidade/relacionamento.
 
-## Tecnologias utilizadas: 
-indicar as tecnologias utilizadas na construção da aplicação.
+## Tecnologias utilizadas:  
 
--> Linguagem:
+-> **Linguagem:** JavaScript;
 
--> Frameworks:
+-> **IDE:** Visual Studio Code;
 
--> Banco de dados:
+-> **Frameworks:** Node.js e Express;
 
--> IDE:
+-> **ORM:** Sequelize;
+
+-> **Banco de dados:** Supabase;
+
+-> **Autenticação e Criptografia:** JWT e Bcrypt;
+
+-> **Documentação:** Swagger;
+
+-> **Hospedagem em nuvem**: Vercel ou Render;
 
 <div align="middle">
   
