@@ -1,6 +1,6 @@
 # Fap Desk 
 O **Fap Desk** é um serviço de atendimento ao cliente que possui como característica primordial a centralização de solicitações em uma única plataforma virtual facilitando o gerenciamento de chamados. 
-A ideia se basia no funcionamento de um software help desk permitindo que os chamados sejam classificados em ordem de importância. Priorizando sempre as solicitações mais urgentes antes.
+A ideia se baseia no funcionamento de um software help desk permitindo que os chamados sejam classificados em ordem de importância. Priorizando sempre as solicitações mais urgentes antes.
 
 <div align="middle">
    
@@ -24,7 +24,7 @@ A **Info Rio Sistemas**, nosso cliente, precisa de uma aplicação Help Desk que
 
 1) **João** um FUNCIONÁRIO da **Info Rio Sistemas**, ele precisa de um aplicação que facilite o gerenciamento dos seus chamados e torne seu trabalho mais ágil.
    
-2) **Maria** uma CLIENTE da **Info Rio Sistemas**, gostaria de um serviço de atendimento ao cliente facilato, onde seria possível abrir e acompanhar chamados de forma simples e ágil.
+2) **Maria** uma CLIENTE da **Info Rio Sistemas**, gostaria de um serviço de atendimento ao cliente facilitado, onde seria possível abrir e acompanhar chamados de forma simples e ágil.
 
 ## Requisitos do projeto: 📚
 
@@ -32,15 +32,15 @@ A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de 
 
 📌 **MARIA -> cliente da Info Rio Sistemas:**
 * `Funcionalidade de Cadastro`: nome, telefone, e-mail, senha (com criptografia via hash), nome e endereço da empresa que Maria trabalha. 
-* `Funcionalidade de Login`: inserção de e-mail e senha da Maria com checagem no banco e validação via JWT, além de link "esqueceu a senha". ???
-* `Funcionalidade de Alteração de Senha`: permite alteração da senha pela Maria, basta inserir e-mail, senha atual, e senha a que deseja implementar. ????
+* `Funcionalidade de Login`: inserção de e-mail e senha da Maria com checagem no banco e validação via JWT.
+* `Funcionalidade de Alteração de Senha`: permite alteração da senha pela Maria, em caso de desejo de troca ou esquecimento. 
 
 📌 **JOÃO -> funcionário da Info Rio Sistemas:**
 * `Funcionalidade de Cadastro`: Nome, função na Info Rio Sistemas, documento de identificação, telefone, e-mail, senha (com criptografia via hash).
-* `Funcionalidade de Login`: Inserção de e-mail e senha do João com checagem no banco e validação via JWT, além de link "esqueceu a senha". ???
-* `Alteração de Senha`: permite alteração da senha pelo João, basta inserir e-mail, senha atual, e senha a que deseja implementar. ????
+* `Funcionalidade de Login`: Inserção de e-mail e senha do João com checagem no banco e validação via JWT.
+* `Funcionalidade de Alteração de Senha`: permite alteração da senha pelo João, em caso de desejo de troca ou esquecimento. 
 
-📌 **CHAMADOS -> Solicitado por Maria e vizualidado por João**: 
+📌 **CHAMADOS -> Solicitado por Maria e visualidado por João**: 
 * `Dados dos Chamados`: Nome da empresa que Maria trabalha, funcionário (Maria), título, serviço utilizado, problema, descrição, técnico responsável (João), prioridade, status, solução. 
 * `Ordenação de Chamados`: Os chamados serão ordenados por prioridade (Baixa, média ou alta) e os chamados fechados não poderão ser vizualizados, porém caso Maria precise, pode modificar a ordem de prioridade dos chamados para cronológica e solicitar a vizualização de chamados fechados.
 
@@ -51,7 +51,7 @@ A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de 
 * `Atualização`: Maria poderá atualizar todos os campos aos quais possui permissão no momento da abertura de chamados.
 
 📌 **Funcionalidades dos chamados para JOÃO:**
-* `Abertura`: João terá acesso a **todos** os campos para abertura de chamados.  ????
+* `Abertura`: João terá acesso a **todos** os campos para abertura de chamados, **incluíndo** Técnico Responsável, Solução e Status.
 * `Acompanhamento`: João terá acesso a **todos**, incluindo aqueles delegados aos seus colegas técnicos da Info Rio Sistemas. 
 * `Atualização`: O João poderá atualizar **todos** os chamados, incluindo aqueles delegados aos seus colegas técnicos Info Rio Sistemas. 
 
