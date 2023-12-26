@@ -2,7 +2,7 @@
 ![fapDesk](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/47a3df9c-4b75-4bdc-9042-9f6b799eed9a)
 # Fap Desk 
 O **Fap Desk** é um serviço de atendimento ao cliente que possui como característica primordial a centralização de solicitações em uma única plataforma virtual facilitando o gerenciamento de chamados. 
-A ideia se baseia no funcionamento de um software help desk permitindo que os chamados sejam classificados em ordem de importância. Priorizando sempre as solicitações mais urgentes antes.
+A ideia se baseia no funcionamento de um software help desk permitindo que os chamados sejam classificados em ordem de importância. Priorizando sempre as solicitações mais urgentes.
 
 <div align="middle">
    
@@ -25,8 +25,12 @@ A **Info Rio Sistemas**, nosso cliente, precisa de uma aplicação Help Desk que
 </div>
 
 1) **João** um FUNCIONÁRIO da **Info Rio Sistemas**, ele precisa de um aplicação que facilite o gerenciamento dos seus chamados e torne seu trabalho mais ágil.
+   
+![Persona João (FapDesk)](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/f09bcbc1-07c7-4c8a-962c-6ff805607a82)
 
-3) **Maria** uma CLIENTE da **Info Rio Sistemas**, gostaria de um serviço de atendimento ao cliente facilitado, onde seria possível abrir e acompanhar chamados de forma simples e ágil.
+2) **Maria** uma CLIENTE da **Info Rio Sistemas**, gostaria de um serviço de atendimento ao cliente facilitado, onde seria possível abrir e acompanhar chamados de forma simples e ágil.
+
+![Persona Maria (FapDesk)](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/a7202ca4-d221-49c9-8cbf-b4891b6fd297)
 
 ## Requisitos do projeto: 📚
 
