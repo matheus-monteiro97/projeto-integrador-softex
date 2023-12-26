@@ -36,32 +36,48 @@ A **Info Rio Sistemas**, nosso cliente, precisa de uma aplicação Help Desk que
 
 A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de arquitetura **MVC - Model, View, Controller**.
 
-📌 **MARIA -> cliente da Info Rio Sistemas:**
-* `Funcionalidade de Cadastro`: nome, telefone, e-mail, senha (com criptografia via hash), nome e endereço da empresa que Maria trabalha. 
-* `Funcionalidade de Login`: inserção de e-mail e senha da Maria com checagem no banco e validação via JWT.
-* `Funcionalidade de Alteração de Senha`: permite alteração da senha pela Maria, em caso de desejo de troca ou esquecimento. 
-
-📌 **JOÃO -> funcionário da Info Rio Sistemas:**
-* `Funcionalidade de Cadastro`: Nome, função na Info Rio Sistemas, documento de identificação, telefone, e-mail, senha (com criptografia via hash).
-* `Funcionalidade de Login`: Inserção de e-mail e senha do João com checagem no banco e validação via JWT.
-* `Funcionalidade de Alteração de Senha`: permite alteração da senha pelo João, em caso de desejo de troca ou esquecimento. 
-
 📌 **CHAMADOS -> Solicitado por Maria e visualidado por João**: 
 * `Dados dos Chamados`: Nome da empresa que Maria trabalha, funcionário (Maria), título, serviço utilizado, problema, descrição, técnico responsável (João), prioridade, status, solução. 
 * `Ordenação de Chamados`: Os chamados serão ordenados por prioridade (Baixa, média ou alta) e os chamados fechados não poderão ser vizualizados, porém caso Maria precise, pode modificar a ordem de prioridade dos chamados para cronológica e solicitar a vizualização de chamados fechados.
+  
+📌 **MARIA -> cliente da Info Rio Sistemas:**
+* `Funcionalidade de Cadastro`: nome, telefone, e-mail, senha (com criptografia via hash), nome e endereço da empresa que Maria trabalha.
+* `Funcionalidade de Atualização`: nome, telefone, e-mail, nome e endereço da empresa que Maria trabalha. 
+* `Funcionalidade de Login`: inserção de e-mail e senha da Maria com checagem no banco e validação via JWT.
+* `Funcionalidade de Alteração de Senha`: permite alteração da senha pela Maria, em caso de desejo de troca ou esquecimento.
 
 📌 **Funcionalidades dos chamados para MARIA:**
 * `Abertura`: Maria está apta para abrir os chamados e inserir todos os campos, **exceto**: Técnico Responsável, Solução e Status.
 **Observação:** O nome da empresa e funcionário serão inseridos automaticamente, assim que Maria se logar na aplicação. 
 * `Acompanhamento`: Maria poderá ter acesso exclusivamente aos chamados abertos pela empresa a qual trabalha. 
 * `Atualização`: Maria poderá atualizar todos os campos aos quais possui permissão no momento da abertura de chamados.
+  
+
+![Experiencia de Maria](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/d2fe96b4-07f7-479a-b2ea-4ccdadb9c4a3)
+
+📌 **JOÃO -> funcionário da Info Rio Sistemas:**
+* `Funcionalidade de Cadastro`: Nome, função na Info Rio Sistemas, documento de identificação, telefone, e-mail, senha (com criptografia via hash).
+* `Funcionalidade de Atualização`: Nome, função na Info Rio Sistemas, documento de identificação, telefone, e-mail.
+* `Funcionalidade de Login`: Inserção de e-mail e senha do João com checagem no banco e validação via JWT.
+* `Funcionalidade de Alteração de Senha`: permite alteração da senha pelo João, em caso de desejo de troca ou esquecimento. 
 
 📌 **Funcionalidades dos chamados para JOÃO:**
 * `Abertura`: João terá acesso a **todos** os campos para abertura de chamados, **incluíndo** Técnico Responsável, Solução e Status.
 * `Acompanhamento`: João terá acesso a **todos**, incluindo aqueles delegados aos seus colegas técnicos da Info Rio Sistemas. 
-* `Atualização`: O João poderá atualizar **todos** os chamados, incluindo aqueles delegados aos seus colegas técnicos Info Rio Sistemas. 
+* `Atualização`: O João poderá atualizar **todos** os chamados, incluindo aqueles delegados aos seus colegas técnicos Info Rio Sistemas.
+  
 
-## Modelo Entidade-Relacionamento (ER): 
+![Experiencia de João](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/61ca4182-f5d5-4859-95f5-49d3db51583d)
+
+## Diagrama UML:
+A estrutura do FAP Desk se dará da seguinte forma:
+1) Classe abstrata **User**;
+2) Classes **Customer**, **Employee** e **Adm** que herdam as características de **User**;
+3) Classe **Called** que se relaciona com as classes **Customer**, **Employee** e **Adm**;
+
+![Diagramas de Classe UML fapdesk](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/0c78750e-e449-40ef-8458-2236ef8e1a24)
+
+## Modelo Entidade-Relacionamento (ER): **(RETIRAR?????)**
 
 
 <div align="middle">
