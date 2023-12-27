@@ -1,6 +1,6 @@
 
-![fapDesk](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/47a3df9c-4b75-4bdc-9042-9f6b799eed9a)
-# Fap Desk 
+![fapDesk](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/47a3df9c-4b75-4bdc-9042-9f6b799eed9a) 
+
 O **Fap Desk** é um serviço de atendimento ao cliente que possui como característica primordial a centralização de solicitações em uma única plataforma virtual facilitando o gerenciamento de chamados. 
 A ideia se baseia no funcionamento de um software help desk permitindo que os chamados sejam classificados em ordem de importância. Priorizando sempre as solicitações mais urgentes.
 
@@ -69,23 +69,13 @@ A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de 
 
 ![Experiencia de João](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/61ca4182-f5d5-4859-95f5-49d3db51583d)
 
-## Diagrama UML:
+## Diagrama UML: 📂
 A estrutura do FAP Desk se dará da seguinte forma:
 1) Classe abstrata **User**;
 2) Classes **Customer**, **Employee** e **Adm** que herdam as características de **User**;
 3) Classe **Called** que se relaciona com as classes **Customer**, **Employee** e **Adm**;
 
-![Diagramas de Classe UML fapdesk](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/0c78750e-e449-40ef-8458-2236ef8e1a24)
-
-## Modelo Entidade-Relacionamento (ER): **(RETIRAR?????)**
-
-
-<div align="middle">
-
-![modele_db](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/18569a66-983f-4568-ad64-5d3dc0ffacd8)
-
-</div>
-
+![Diagramas de Classe UML fapdesk atualizado](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/6c0773fb-7ace-4929-b875-c48ede90211f)
 
 ## Tecnologias utilizadas: 🛠️
 
