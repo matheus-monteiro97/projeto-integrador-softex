@@ -37,18 +37,18 @@ A **Info Rio Sistemas**, nosso cliente, precisa de uma aplicação Help Desk que
 A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de arquitetura **MVC - Model, View, Controller**.
 
 📌 **CHAMADOS -> Solicitado por Maria e visualidado por João**: 
-* `Dados dos Chamados`: Nome da empresa que Maria trabalha, funcionário (Maria), título, serviço utilizado, problema, descrição, técnico responsável (João), prioridade, status, solução. 
-* `Ordenação de Chamados`: Os chamados serão ordenados por prioridade (Baixa, média ou alta) e os chamados fechados não poderão ser vizualizados, porém caso Maria precise, pode modificar a ordem de prioridade dos chamados para cronológica e solicitar a vizualização de chamados fechados.
+* `Dados dos Chamados`: informações do solicitante (Maria), informações do técnico responsável (João), data de criação, data de fechamento, título, problema, solução, descrição, prioridade, status. 
+* `Ordenação de Chamados`: Os chamados serão ordenados por prioridade (Baixa, média ou alta) e os chamados fechados não poderão ser vizualizados, porém caso Maria precise, pode modificar a ordem de prioridade dos chamados para cronológica e solicitar a vizualização de ----->chamados fechados<----.
   
 📌 **MARIA -> cliente da Info Rio Sistemas:**
-* `Funcionalidade de Cadastro`: nome, telefone, e-mail, senha (com criptografia via hash), nome e endereço da empresa que Maria trabalha.
-* `Funcionalidade de Atualização`: nome, telefone, e-mail, nome e endereço da empresa que Maria trabalha. 
+* `Funcionalidade de Cadastro`: nome, telefone, e-mail, senha (com criptografia via hash), nome e endereço da empresa que Maria trabalha, cargo, departamento, tipo de usuário (cliente), data de registro.
+* `Funcionalidade de Atualização`: nome, telefone, e-mail, nome e endereço da empresa que Maria trabalha, cargo, departamento. 
 * `Funcionalidade de Login`: inserção de e-mail e senha da Maria com checagem no banco e validação via JWT.
-* `Funcionalidade de Alteração de Senha`: permite alteração da senha pela Maria, em caso de desejo de troca ou esquecimento.
+* `Funcionalidade de Alteração de Senha`: Permite alteração da senha pela Maria.
 
 📌 **Funcionalidades dos chamados para MARIA:**
-* `Abertura`: Maria está apta para abrir os chamados e inserir todos os campos, **exceto**: Técnico Responsável, Solução e Status.
-**Observação:** O nome da empresa e funcionário serão inseridos automaticamente, assim que Maria se logar na aplicação. 
+* `Abertura`: Maria está apta para abrir os chamados e inserir todos os campos, **exceto**: Técnico Responsável, problema, solução, prioridade e Status.
+**Observação:** O nome da empresa e do funcionário(Maria) serão inseridos automaticamente, assim que a mesma se logar na aplicação. 
 * `Acompanhamento`: Maria poderá ter acesso exclusivamente aos chamados abertos pela empresa a qual trabalha. 
 * `Atualização`: Maria poderá atualizar todos os campos aos quais possui permissão no momento da abertura de chamados.
   
@@ -56,10 +56,10 @@ A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de 
 ![Experiencia de Maria](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/d2fe96b4-07f7-479a-b2ea-4ccdadb9c4a3)
 
 📌 **JOÃO -> funcionário da Info Rio Sistemas:**
-* `Funcionalidade de Cadastro`: Nome, função na Info Rio Sistemas, documento de identificação, telefone, e-mail, senha (com criptografia via hash).
-* `Funcionalidade de Atualização`: Nome, função na Info Rio Sistemas, documento de identificação, telefone, e-mail.
+* `Funcionalidade de Cadastro`: Nome, cargo na Info Rio Sistemas, documento de identificação, telefone, e-mail, senha (com criptografia via hash), tipo de usuário (funcionário e/ou administrador).
+* `Funcionalidade de Atualização`: Nome, cargo na Info Rio Sistemas, documento de identificação, telefone, e-mail, tipo de usuário.
 * `Funcionalidade de Login`: Inserção de e-mail e senha do João com checagem no banco e validação via JWT.
-* `Funcionalidade de Alteração de Senha`: permite alteração da senha pelo João, em caso de desejo de troca ou esquecimento. 
+* `Funcionalidade de Alteração de Senha`: Permite alteração da senha pelo João. 
 
 📌 **Funcionalidades dos chamados para JOÃO:**
 * `Abertura`: João terá acesso a **todos** os campos para abertura de chamados, **incluíndo** Técnico Responsável, Solução e Status.
@@ -72,10 +72,11 @@ A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de 
 ## Diagrama UML: 📂
 A estrutura do FAP Desk se dará da seguinte forma:
 1) Classe abstrata **User**;
-2) Classes **Customer**, **Employee** e **Adm** que herdam as características de **User**;
-3) Classe **Called** que se relaciona com as classes **Customer**, **Employee** e **Adm**;
+2) Classes **Customer** e **Employee** que herdam as características de **User**;
+3) Classe **Adm** herda as características da classe **Employee** e só deve ser instanciada caso o usuário seja do tipo administrador;
+4) Classe **Called** se relaciona com a classe **Customer** através de *composição* e com a classe **Employee** atavés de *agregação*;
 
-![Diagramas de Classe UML fapdesk atualizado](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/6c0773fb-7ace-4929-b875-c48ede90211f)
+![UML fapdesk](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/90fab1a4-aee8-40fc-a123-3a694d72b1e6)
 
 ## Tecnologias utilizadas: 🛠️
 
