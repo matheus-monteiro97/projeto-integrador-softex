@@ -45,18 +45,29 @@ A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de 
 * `Ordenação de Chamados`: Os chamados serão ordenados por prioridade (Baixa, média ou alta) e os chamados fechados não poderão ser vizualizados, porém caso Maria precise, pode modificar a ordem de prioridade dos chamados para cronológica e solicitar a vizualização de chamados fechados.
 
 📌 **Funcionalidades dos chamados para MARIA:**
-* `Abertura`: Maria está apta para abrir os chamados e inserir todos os campos, **exceto**: Técnico Responsável, Solução e Status.
-**Observação:** O nome da empresa e funcionário serão inseridos automaticamente, assim que Maria se logar na aplicação. 
+* `Abertura`: Maria está apta para abrir os chamados e inserir todos os campos, **exceto**: Técnico Responsável, solução, prioridade e Status.
+**Observação:** O nome da empresa e do funcionário(Maria) serão inseridos automaticamente, assim que a mesma se logar na aplicação. 
 * `Acompanhamento`: Maria poderá ter acesso exclusivamente aos chamados abertos pela empresa a qual trabalha. 
 * `Atualização`: Maria poderá atualizar todos os campos aos quais possui permissão no momento da abertura de chamados.
 
-📌 **Funcionalidades dos chamados para JOÃO:**
+![Experiencia de Maria](https://github.com/DanielaXavier1995/projeto-integrador-softex/assets/116307469/d2fe96b4-07f7-479a-b2ea-4ccdadb9c4a3)
+
+📌 **JOÃO -> funcionário(administrador) da Info Rio Sistemas:**
+* `Funcionalidade de Cadastro`: Nome, cargo na Info Rio Sistemas, documento de identificação, telefone, e-mail, senha (com criptografia via hash), tipo de usuário (funcionário e/ou administrador).
+* `Funcionalidade de Atualização`: Nome, cargo na Info Rio Sistemas, documento de identificação, telefone, e-mail, tipo de usuário. João na qualidade de admintrador também poderá atualizar o cadastro de seus funcionários e clientes da Info Rio Sistemas.
+* `Funcionalidade de Login`: Inserção de e-mail e senha do João com checagem no banco e validação via JWT.
+* `Funcionalidade de Alteração de Senha`: Permite alteração da senha pelo João.
+* `Listar`: O João poderá listar **todos** todos os clientes e funcionários Info Rio Sistemas.
+* `Deleção`: O João na qualidade de adminitrador poderá deletar qualquer cadastro de funcionários e cliente da Info Rio Sistemas caso necessário.
+
+📌 **Funcionalidades dos chamados para JOÃO (funcionário e administrador):**
 * `Abertura`: João terá acesso a **todos** os campos para abertura de chamados, **incluíndo** Técnico Responsável, Solução e Status.
-* `Acompanhamento`: João terá acesso a **todos**, incluindo aqueles delegados aos seus colegas técnicos da Info Rio Sistemas. 
-* `Atualização`: O João poderá atualizar **todos** os chamados, incluindo aqueles delegados aos seus colegas técnicos Info Rio Sistemas. 
+* `Acompanhamento`: João terá acesso a **todos** os chamados, incluindo aqueles delegados aos seus colegas técnicos da Info Rio Sistemas e aos chamados já finalizados. 
+* `Atualização`: O João poderá atualizar **todos** os chamados, incluindo aqueles delegados aos seus colegas técnicos Info Rio Sistemas.
+* `Listar`: O João poderá **todos** os chamados, incluindo aqueles delegados aos seus colegas técnicos Info Rio Sistemas.
+* `Deleção`: O João poderá deletar qualquer chamado caso necessário.
 
 ## Modelo Entidade-Relacionamento (ER): 
-
 
 <div align="middle">
 
