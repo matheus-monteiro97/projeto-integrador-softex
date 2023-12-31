@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const database = require("../config/dbConnection");
+const database = require("../../config/connectionDB");
 const customer = require("./CustomerModel");
 
 class CalledModel {
