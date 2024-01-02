@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
-const database = require("../config/dbConnection");
-const custumer = require("./CustomerModel");
+const database = require("../../config/connectionDB");
+const customer = require("./CustomerModel");
+const Employee = require ("./employeeModel");
 
 class CalledModel {
   constructor() {
@@ -14,7 +15,14 @@ class CalledModel {
       idCustomer: {
         type: Sequelize.INTEGER,
         references: {
-          model: custumer,
+          model: customer,
+          key: "id",
+        },
+      },
+      idEmployee: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: Employee,
           key: "id",
         },
       },
@@ -56,8 +64,12 @@ class CalledModel {
       },
     });
 
-    colled.belongsTo(custumer, {
+    this.called.belongsTo(customer, {
       foreignKey: "idCustomer",
+    });
+
+    this.called.belongsTo(Employee, {
+      foreignKey: "idEmployee",
     });
   }
 }
