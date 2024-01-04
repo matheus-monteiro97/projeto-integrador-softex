@@ -10,7 +10,7 @@ class EmployeeModel {
             allowNull: false,
             primaryKey: true,
         },
-        userID: {
+        userId: {
             type:Sequelize.INTEGER,
             allowNull: false,
             references: {
