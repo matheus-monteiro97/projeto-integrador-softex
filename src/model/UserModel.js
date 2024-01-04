@@ -19,10 +19,6 @@ class UserModel {
         unique: true,
         allowNull: false,
       },
-      dateRegistration: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
       userType: {
         type: Sequelize.ENUM("Customer", "Employee"),
         allowNull: false,
