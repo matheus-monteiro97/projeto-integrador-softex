@@ -3,10 +3,12 @@ const app = express();
 const bodyParser = require("body-parser");
 const router = require("./src/router/router");
 const database = require("./config/connectionDB");
-
+const employee = require("./src/model/employeeModel");
 app.use(bodyParser.json());
 
 app.use('/', router);
+
+employee.associate();
 
 database.sync()
 .then(()=> {
