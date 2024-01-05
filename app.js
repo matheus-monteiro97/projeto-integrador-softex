@@ -4,18 +4,21 @@ const bodyParser = require("body-parser");
 const router = require("./src/router/router");
 const database = require("./config/connectionDB");
 const employee = require("./src/model/employeeModel");
+const customer = require("./src/model/customerModel");
 app.use(bodyParser.json());
 
-app.use('/', router);
+app.use("/", router);
 
 employee.associate();
+customer.associate();
 
-database.sync()
-.then(()=> {
-    app.listen (3000, ()=>{
-        console.log("Server running on port 3000");
-    }); 
-})
-.catch (error => {
-    console.error('Erro ao sincronizar modelos com o banco de dados:', error);
-});
+database
+  .sync()
+  .then(() => {
+    app.listen(3000, () => {
+      console.log("Server running on port 3000");
+    });
+  })
+  .catch((error) => {
+    console.error("Erro ao sincronizar modelos com o banco de dados:", error);
+  });
