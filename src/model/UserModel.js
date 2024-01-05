@@ -26,6 +26,7 @@ class UserModel {
       isActive: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
+        defaultValue: true,
     },
     });
 }

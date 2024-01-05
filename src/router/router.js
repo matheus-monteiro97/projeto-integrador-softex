@@ -4,7 +4,6 @@ const EmployeeController = require("../controller/employeeController");
 const employeeController = new EmployeeController
 const bodyParser = require("body-parser");
 
-
 router.use(bodyParser.json());
 
 // CRUD EMPLOYEE e USER
