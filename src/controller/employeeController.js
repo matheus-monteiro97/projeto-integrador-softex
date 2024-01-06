@@ -1,5 +1,5 @@
 const userRepository = require("../repository/userRepository");
-const EmployeeRepository = require("../repository/employeeRepository");
+const employeeRepository = require("../repository/employeeRepository");
 
 class EmployeeController {
     async createEmployee (req, res) {
@@ -31,7 +31,7 @@ class EmployeeController {
                 // O Sequelize já atribuiu um valor ao id após a criação do usuário
                 const userId = newUser.id;
 
-                const newEmployee = await EmployeeRepository.createEmployee( {
+                const newEmployee = await employeeRepository.createEmployee( {
                     userId,
                     name,
                     phoneNumber,
