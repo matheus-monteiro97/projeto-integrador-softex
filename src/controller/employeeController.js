@@ -1,5 +1,5 @@
 const userRepository = require("../repository/userRepository");
-const EmployeeRepository = require("../repository/employeeRepository");
+const employeeRepository = require("../repository/employeeRepository");
 
 class EmployeeController {
     async createEmployee (req, res) {
@@ -31,7 +31,7 @@ class EmployeeController {
                 // O Sequelize já atribuiu um valor ao id após a criação do usuário
                 const userId = newUser.id;
 
-                const newEmployee = await EmployeeRepository.createEmployee( {
+                const newEmployee = await employeeRepository.createEmployee( {
                     userId,
                     name,
                     phoneNumber,
@@ -48,6 +48,17 @@ class EmployeeController {
                   return res.status(500).json({ error: "Error creating Employee" });
               }
           }
+
+          async getAllEmployees(req, res) {
+            try {
+                const employees = await employeeRepository.getAllEmployees();
+    
+                res.status(200).json(employees);
+            } catch (error) {
+                console.error(error.message);
+                res.status(500).send({error: "Erro ao obter funcionários"});
+            }
+        }
         }
 
 module.exports = EmployeeController;
