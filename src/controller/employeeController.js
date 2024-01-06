@@ -48,6 +48,17 @@ class EmployeeController {
                   return res.status(500).json({ error: "Error creating Employee" });
               }
           }
+
+          async getAllEmployees(req, res) {
+            try {
+                const employees = await employeeRepository.getAllEmployees();
+    
+                res.status(200).json(employees);
+            } catch (error) {
+                console.error(error.message);
+                res.status(500).send({error: "Erro ao obter funcionários"});
+            }
+        }
         }
 
 module.exports = EmployeeController;
