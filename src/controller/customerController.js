@@ -50,6 +50,17 @@ class CustomerController {
       return res.status(500).json({ error: "Error creating Custumer" });
     }
   }
+
+  async getAllCustomers(req, res) {
+    try {
+      const customers = await customerRepository.getAllCustomers();
+
+      res.status(200).json(customers);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send({ error: "Erro ao obter clientes" });
+    }
+  }
 }
 
 module.exports = CustomerController;
