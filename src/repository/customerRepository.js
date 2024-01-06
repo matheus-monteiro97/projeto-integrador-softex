@@ -11,7 +11,7 @@ class CustomerRepository {
     }
   };
 
-  static async getAllCustomers() {
+  static getAllCustomers = async function () {
     try {
       const customers = await customerModel.customer.findAll({
         include: [
@@ -27,7 +27,7 @@ class CustomerRepository {
       console.log(error.message);
       throw new Error("Error retrieving all customers:", error.message);
     }
-  }
+  };
 }
 
 module.exports = CustomerRepository;
