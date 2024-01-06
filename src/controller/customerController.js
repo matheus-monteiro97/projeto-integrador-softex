@@ -1,5 +1,5 @@
 const userRepository = require("../repository/userRepository");
-const customerRepository = require("../repository/custumerRepository");
+const customerRepository = require("../repository/customerRepository");
 
 class CustomerController {
   async createCustumer(req, res) {
@@ -22,8 +22,8 @@ class CustomerController {
       const newUser = await userRepository.createUser({
         emailAddress,
         password,
-        userType: "Custumer",
-        isActive: true,
+        userType: "Customer",
+        isActive,
       });
 
       // Chama o método createUser da classe pai (UserController)
@@ -32,7 +32,7 @@ class CustomerController {
       // O Sequelize já atribuiu um valor ao id após a criação do usuário
       const userId = newUser.id;
 
-      const newCustumer = await customerRepository.createCustomer({
+      const newCustomer = await customerRepository.createCustomer({
         userId,
         name,
         phoneNumber,
@@ -42,11 +42,11 @@ class CustomerController {
         department,
       });
 
-      console.log("Employee created:", newCustumer);
+      console.log("Customer created:", newCustomer);
 
-      return res.status(201).json(newEmployee);
+      return res.status(201).json(newCustomer);
     } catch (error) {
-      console.error("Error creating Custumer:", error);
+      console.error("Error creating Customer:", error);
       return res.status(500).json({ error: "Error creating Custumer" });
     }
   }
