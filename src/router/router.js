@@ -12,6 +12,7 @@ router.use(bodyParser.json());
 
 // CRUD EMPLOYEE e USER
 router.post("/employee", employeeController.createEmployee);
+router.get("/employee", employeeController.getAllEmployees);
 
 // CRUD EMPLOYEE e USER
 router.post("/customer", customerController.createCustumer);
