@@ -2,8 +2,6 @@ const sequelize = require("sequelize");
 const database = require("../../config/connectionDB");
 const customerModel = require("./customerModel");
 const employeeModel = require("./employeeModel");
-const customerModel = require("./customerModel");
-const employeeModel = require("./employeeModel");
 
 class CalledModel {
   static called = database.define("caller", {
@@ -66,7 +64,7 @@ class CalledModel {
   });
 
   static associate() {
-    CalledModel.called.belongsTo(CustomerModel.customer, {
+    CalledModel.called.belongsTo(customerModel.customer, {
       foreignKey: "customerId",
     }),
       CalledModel.called.belongsTo(employeeModel.employee, {
