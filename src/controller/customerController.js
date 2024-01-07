@@ -58,9 +58,21 @@ class CustomerController {
       res.status(200).json(customers);
     } catch (error) {
       console.error(error.message);
-      res.status(500).send({ error: "Erro ao obter clientes" });
+      res.status(500).send({ error: "Error while retrieving customers" });
     }
   }
+
+  async getByIdCustomer(req, res) {
+    try {
+        const {id} = req.params;
+        const customer = await customerRepository.getByIdCustomer(id);
+        res.status(200).json(customer);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send({error: "Error while retrieving customer"});
+    }
+}
+
 }
 
 module.exports = CustomerController;
