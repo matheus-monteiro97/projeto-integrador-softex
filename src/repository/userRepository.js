@@ -6,7 +6,7 @@ class UserRepository {
       return newUser;
     } catch (error) {
       console.error("Error creating User:", error.message);
-      throw new Error("Error creating User");
+      // throw new Error("Error creating User");
     }
   };
 }
