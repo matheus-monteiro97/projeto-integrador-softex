@@ -1,5 +1,6 @@
 const customerModel = require("../model/customerModel");
-const userModel = require ("../model/UserModel")
+const userModel = require ("../model/UserModel");
+const database = require ("../../config/connectionDB");
 
 class CustomerRepository {
   static createCustomer = async function (data) {
@@ -46,6 +47,40 @@ class CustomerRepository {
         console.error('Error while fetching the Customer:', error.message);
         throw new Error('Error while fetching the Customer');
     }
+ };
+
+ static async deleteCustomer(id) {
+  const transaction = await database.transaction();
+
+  try {
+      const customer = await customerModel.customer.findOne({
+          where: { id },
+          include: [userModel.user],
+          transaction,
+      });
+
+      if (!customer) {
+          throw new Error('Customer not found for the provided ID');
+      }
+
+      // Excluir o Customer
+      await customer.destroy({ transaction });
+
+      // Excluir o User associado
+      const user = await userModel.user.findByPk(customer.userId, { transaction });
+      await user.destroy({ transaction });
+
+      // Commit da transação
+      await transaction.commit();
+
+      return customer;
+  } catch (error) {
+      // Rollback em caso de erro
+      await transaction.rollback();
+
+      console.error('Error while deleting the Employee and associated User:', error.message);
+      throw new Error('Error while deleting the Employee and associated User');
+  }
 }
 }
 
