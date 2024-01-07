@@ -46,30 +46,18 @@ class EmployeeController {
               }
           }
 
-<<<<<<< HEAD
-          // CHAMADA DE FUNÇÃO PARA OBTER FUNCIONÁRIOS. 
-          async getAllEmployees(req, res) {
-            try {
-                const employees = await EmployeeRepository.getAllEmployees();
-=======
           async getAllEmployees(req, res) {
             try {
                 const employees = await employeeRepository.getAllEmployees();
->>>>>>> main
     
                 res.status(200).json(employees);
             } catch (error) {
                 console.error(error.message);
                 res.status(500).send({error: "Erro ao obter funcionários"});
             }
-<<<<<<< HEAD
-=======
         }
->>>>>>> main
         }
 
         //CHAMADA DE FUNÇÃO PARA DELETAR EMPLOYEE E USER
-
-    }
 
 module.exports = EmployeeController;
