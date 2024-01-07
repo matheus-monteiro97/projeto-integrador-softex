@@ -1,67 +1,93 @@
-const CalledModel = require('../model/calledModel');
-const database = require('../../config/connectionDB');
-database.sync();
-
+const calledRepository = require("../repository/calledRepository");
 class CalledController {
-    async createCalled (req, res) {
-        try {
-           const { id, idCustomer, idEmployee, creationDate, closingDate, titleCalled, problem, solution, description, priority, statusCalled, isActive } = req.body;
-           const newCalled = await CalledModel.create({id, idCustomer, idEmployee, creationDate, closingDate, titleCalled, problem, solution, description, priority, statusCalled, isActive});
-           return res.status(201).json(newCalled);
-        } catch (error) {
-            return res.status(500).json({error: 'Error creating called'});
-        };
-    };
+  async createCalled(req, res) {
+    try {
+      const {
+        id,
+        idCustomer,
+        idEmployee,
+        creationDate,
+        closingDate,
+        titleCalled,
+        problem,
+        solution,
+        description,
+        priority,
+        statusCalled,
+        isActive,
+      } = req.body;
 
-    async getAllCalleds (req, res) {
-        try {
-           const called = await CalledModel.findAll();
-           return res.status(200).json(called);
-        } catch (error) {
-            return res.status(500).json({error: 'Error getting called'});
-        };
-    };
-    
-    async getCalledById (req, res) {
-        try {
-            const {id} = req.params;
-            const called = await CalledModel.findByPk(id);
-            if(!called) {
-                return res.status(404).json({error:'Not found.'});
-            };
-        } catch (error) {
-            return res.status(500).json({error: 'Error getting called'});
-        };
-    };
+      console.log("Received request with data:", req.body);
 
-    async updateCalled (req, res) {
-        try {
-            const {idCalled} = req.params;
-            const { id, idCustomer, idEmployee, creationDate, closingDate, titleCalled, problem, solution, description, priority, statusCalled, isActive } = req.body; 
-            const called = await CalledModel.findById(idCalled);
-            if (!called) {
-                return res.status(404).json({error: 'The called not found'});
-            };
-            await called.update({id, idCustomer, idEmployee, creationDate, closingDate, titleCalled, problem, solution, description, priority, statusCalled, isActive});
-        } catch (error) {
-            return res.status(500).json({error: 'Error update called'});
-        };
-    };
+      const newCalled = await calledRepository.createCalled({
+        id,
+        idCustomer,
+        idEmployee,
+        creationDate,
+        closingDate,
+        titleCalled,
+        problem,
+        solution,
+        description,
+        priority,
+        statusCalled: "open",
+        isActive: true,
+      });
 
-    async deleteCalled (req, res) {
-        try {
-            const {id} = req.params;
-            const called = await CalledModel.findById(id);
-            if (!called) {
-                return res.status(404).json({error: 'The called not found'});
-            };
-            await called.destroy();
-            await res.status(204).json();
-        } catch (error) {
-            return res.status(500).json({error: 'Error deleting called'});
-        };
-    };
+      console.log("Employee created:", newEmployee);
 
-};
+      return res.status(201).json(newCalled);
+    } catch (error) {
+      return res.status(500).json({ error: "Error creating Called" });
+    }
+  }
+
+  async getAllCalleds(res) {
+    try {
+      const calledes = await calledRepository.getAllCalledes();
+      return res.status(200).json(calledes);
+    } catch (error) {
+      return res.status(500).json({ error: "Error getting Calledes" });
+    }
+  }
+
+  async getByIdCalled(req, res) {
+    try {
+      const { id } = req.params;
+      const called = await calledRepository.getByIdCalled(id);
+      return res.status(200).json(called);
+    } catch (error) {
+      return res.status(500).send({ error: "Error while retrieving Called" });
+    }
+  }
+
+  async updateCalled(req, res) {
+    try {
+      const { id } = req.params;
+      const data = req.body;
+
+      const updatedcalled = await calledRepository.updateCalled(id, data);
+
+      return res.json(updatedcalled);
+    } catch (error) {
+      console.error(error.message);
+      return res
+        .status(500)
+        .json({ success: false, message: "Error updating Called." });
+    }
+  }
+
+  async deleteCalled(req, res) {
+    try {
+      const { id } = req.params;
+      const deletedCalled = await calledRepository.deleteCalled(id);
+
+      return res.status(200).json(deletedCalled);
+    } catch (error) {
+      console.error(error.message);
+      return res.status(500).send({ error: "Error while deleting the called" });
+    }
+  }
+}
 
 module.exports = CalledController;

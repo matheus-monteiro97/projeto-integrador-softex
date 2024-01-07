@@ -1,4 +1,4 @@
-const user = require("../model/UserModel");
+//const user = require("../model/userModel");
 
 const database = require("../../config/connectionDB");
 database.sync();
@@ -16,7 +16,7 @@ module.exports = UserController;
 // class UserController {
 //     async createUser (req, res) {
 //       try {
-        
+
 //         const {
 //           emailAddress,
 //           password,
@@ -42,7 +42,7 @@ module.exports = UserController;
 //         console.error("Error creating User:", error);
 //         return res.status(500).json({ error: "Error creating User" });
 //     }
-//     }  
+//     }
 // }
 
 // module.exports = UserController;
