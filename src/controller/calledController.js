@@ -30,8 +30,8 @@ class CalledController {
         solution,
         description,
         priority,
-        statusCalled,
-        isActive,
+        statusCalled: "open",
+        isActive: true,
       });
 
       console.log("Employee created:", newEmployee);
