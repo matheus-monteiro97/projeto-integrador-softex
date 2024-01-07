@@ -73,6 +73,20 @@ class CustomerController {
     }
   }
 
+  async updateCustomer(req, res) {
+    try {
+        const {id} = req.params;
+        const data = req.body; 
+
+        const updatedCustomer = await customerRepository.updateCustomer(id, data);
+
+        res.json(updatedCustomer);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ success: false, message:"Error updating customer." });
+    }
+}
+
   async deleteCustomer(req, res) {
     try {
         const { id } = req.params;
