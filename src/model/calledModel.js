@@ -31,7 +31,7 @@ class CalledModel {
     },
     closingDate: {
       type: sequelize.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     titleCalled: {
       type: sequelize.STRING(255),
