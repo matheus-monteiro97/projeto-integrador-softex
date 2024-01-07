@@ -1,52 +1,52 @@
-const Sequelize = require("sequelize");
+const sequelize = require("sequelize");
 const database = require("../../config/connectionDB");
-const UserModel = require("./UserModel");
+const userModel = require("./UserModel");
 
 class CustomerModel {
     static customer = database.define("customer", {
         id: {
-          type: Sequelize.INTEGER,
+          type: sequelize.INTEGER,
           autoIncrement: true,
           allowNull: false,
           primaryKey: true,
         },
-        userID: {
-            type:Sequelize.INTEGER,
+        userId: {
+            type:sequelize.INTEGER,
             allowNull: false,
             references: {
-                model: UserModel.user,
+                model: userModel.user,
                 key: "id",
             },
         },
         name: {
-            type: Sequelize.STRING(100),
+            type: sequelize.STRING(100),
             allowNull: false,
           },
         phoneNumber: {
-            type: Sequelize.STRING(14),
+            type: sequelize.STRING(14),
             unique: true,
             allowNull: false,
         },
         nameCompany: {
-          type: Sequelize.STRING(100),
+          type: sequelize.STRING(100),
           allowNull: false,
         },
         addressCompany: {
-          type: Sequelize.STRING(255),
+          type: sequelize.STRING(255),
           allowNull: false,
         },
         role: {
-          type: Sequelize.STRING(40),
+          type: sequelize.STRING(40),
           allowNull: false,
         },
         department: {
-          type: Sequelize.STRING(40),
+          type: sequelize.STRING(40),
           allowNull: true,
         },
       });
 
       static associate() {
-        CustomerModel.customer.belongsTo(UserModel.user, { foreignKey: "userId" });
+        CustomerModel.customer.belongsTo(userModel.user, { foreignKey: "userId" });
     }
 }
 

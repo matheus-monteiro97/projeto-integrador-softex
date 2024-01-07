@@ -1,12 +1,12 @@
-const EmployeeModel = require('../model/employeeModel');
-const UserModel = require("../model/UserModel");
+const employeeModel = require('../model/employeeModel');
+const userModel = require("../model/UserModel");
 
 class EmployeeRepository {
 
     // FUNÇÃO PARA CRIAR FUNCIONÁRIOS
     static createEmployee = async function (data) {
         try {
-            const newEmployee = await EmployeeModel.employee.create(data);
+            const newEmployee = await employeeModel.employee.create(data);
             return newEmployee;
         } catch (error) {
             console.error("Error creating Employee:", error.message);
@@ -14,12 +14,11 @@ class EmployeeRepository {
         }
     };
 
-    //FUNÇÃO PARA OBTER TODOS OS FUNCIONÁRIOS
     static async getAllEmployees() {
         try {
-            const employees = await EmployeeModel.employee.findAll({
+            const employees = await employeeModel.employee.findAll({
                 include: [{
-                model: UserModel.user,
+                model: userModel.user,
                 required: true,
                 where: { userType: 'Employee' }, //CONDIÇÃO PARA RESGATAR USER E EMPLOYEE
             }],
@@ -30,7 +29,6 @@ class EmployeeRepository {
             throw new Error("Error retrieving all employees:" , error.message);
         }
     }
-
 }
 
 module.exports = EmployeeRepository;

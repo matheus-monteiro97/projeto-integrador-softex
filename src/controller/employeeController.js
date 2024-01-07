@@ -1,5 +1,5 @@
 const userRepository = require("../repository/userRepository");
-const EmployeeRepository = require("../repository/employeeRepository");
+const employeeRepository = require("../repository/employeeRepository");
 
 class EmployeeController {
     async createEmployee (req, res) {
@@ -28,7 +28,7 @@ class EmployeeController {
                 // O Sequelize já atribuiu um valor ao id após a criação do usuário
                 const userId = newUser.id;
 
-                const newEmployee = await EmployeeRepository.createEmployee( {
+                const newEmployee = await employeeRepository.createEmployee( {
                     userId,
                     name,
                     phoneNumber,
@@ -46,16 +46,26 @@ class EmployeeController {
               }
           }
 
+<<<<<<< HEAD
           // CHAMADA DE FUNÇÃO PARA OBTER FUNCIONÁRIOS. 
           async getAllEmployees(req, res) {
             try {
                 const employees = await EmployeeRepository.getAllEmployees();
+=======
+          async getAllEmployees(req, res) {
+            try {
+                const employees = await employeeRepository.getAllEmployees();
+>>>>>>> main
     
                 res.status(200).json(employees);
             } catch (error) {
                 console.error(error.message);
                 res.status(500).send({error: "Erro ao obter funcionários"});
             }
+<<<<<<< HEAD
+=======
+        }
+>>>>>>> main
         }
 
         //CHAMADA DE FUNÇÃO PARA DELETAR EMPLOYEE E USER
