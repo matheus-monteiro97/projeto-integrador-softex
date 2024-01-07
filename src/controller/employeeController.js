@@ -79,7 +79,7 @@ class EmployeeController {
                 res.status(200).json(deletedEmployee);
             } catch (error) {
                 console.error(error.message);
-                res.status(500).send({ error: 'Error while deleting the Employee and associated User' });
+                res.status(500).send({ error: 'Error while deleting the Employee' });
             }
         }
         
