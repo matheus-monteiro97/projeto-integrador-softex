@@ -1,76 +1,75 @@
-const Sequelize = require("sequelize");
+const sequelize = require("sequelize");
 const database = require("../../config/connectionDB");
-const customer = require("./CustomerModel");
-const Employee = require ("./employeeModel");
+const customer = require("./customerModel");
+const employee = require("./employeeModel");
 
 class CalledModel {
-  constructor() {
-    this.called = database.define("called", {
-      id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true,
+  static called = database.define("caller", {
+    id: {
+      type: sequelize.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true,
+    },
+    customerId: {
+      type: sequelize.INTEGER,
+      references: {
+        model: customer,
+        key: "id",
       },
-      idCustomer: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: customer,
-          key: "id",
-        },
+    },
+    employeeId: {
+      type: sequelize.INTEGER,
+      references: {
+        model: employee,
+        key: "id",
       },
-      idEmployee: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: Employee,
-          key: "id",
-        },
-      },
-      creationDate: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
-      closingDate: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
-      titleCalled: {
-        type: Sequelize.STRING(255),
-        allowNull: false,
-      },
-      problem: {
-        type: Sequelize.STRING(255),
-        allowNull: true,
-      },
-      solution: {
-        type: Sequelize.STRING(500),
-        allowNull: false,
-      },
-      description: {
-        type: Sequelize.STRING(500),
-        allowNull: false,
-      },
-      priority: {
-        type: Sequelize.ENUM("high", "mean", "low"),
-        allowNull: false,
-      },
-      statusCalled: {
-        type: Sequelize.ENUM("open", "progress", "close"),
-        allowNull: false,
-      },
-      isActive: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-      },
-    });
+    },
+    creationDate: {
+      type: sequelize.DATE,
+      allowNull: false,
+    },
+    closingDate: {
+      type: sequelize.DATE,
+      allowNull: true,
+    },
+    titleCalled: {
+      type: sequelize.STRING(255),
+      allowNull: false,
+    },
+    problem: {
+      type: sequelize.STRING(255),
+      allowNull: true,
+    },
+    solution: {
+      type: sequelize.STRING(500),
+      allowNull: false,
+    },
+    description: {
+      type: sequelize.STRING(500),
+      allowNull: false,
+    },
+    priority: {
+      type: sequelize.ENUM("high", "mean", "low"),
+      allowNull: false,
+    },
+    statusCalled: {
+      type: sequelize.ENUM("open", "progress", "close"),
+      allowNull: false,
+    },
+    isActive: {
+      type: sequelize.BOOLEAN,
+      allowNull: false,
+    },
+  });
 
-    this.called.belongsTo(customer, {
-      foreignKey: "idCustomer",
-    });
-
-    this.called.belongsTo(Employee, {
-      foreignKey: "idEmployee",
-    });
+  static associate() {
+    CalledModel.called.belongsTo(CustomerModel.customer, {
+      foreignKey: "customerId",
+    }),
+      CalledModel.called.belongsTo(EmployeeModel.employee, {
+        foreignKey: "employeeId",
+      });
   }
 }
 
