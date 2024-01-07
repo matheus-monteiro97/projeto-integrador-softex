@@ -74,7 +74,7 @@ class EmployeeController {
         async updateEmployee(req, res) {
             try {
                 const {id} = req.params;
-                const data = req.body; // Assume que o corpo da solicitação é um JSON com os dados a serem atualizados
+                const data = req.body; 
     
                 const updatedEmployee = await employeeRepository.updateEmployee(id, data);
     

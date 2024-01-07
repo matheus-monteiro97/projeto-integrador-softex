@@ -21,7 +21,7 @@ router.delete("/employee/:id", employeeController.deleteEmployee);
 router.post("/customer", customerController.createCustumer);
 router.get("/customer", customerController.getAllCustomers);
 router.get("/customer/:id", customerController.getByIdCustomer);
-router.get("/customer/:id",customerController.updateCustomer);
+router.put("/customer/:id",customerController.updateCustomer);
 router.delete("/customer/:id", customerController.deleteCustomer);
 
 module.exports = router;
