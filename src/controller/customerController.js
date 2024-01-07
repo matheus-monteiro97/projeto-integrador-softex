@@ -50,6 +50,41 @@ class CustomerController {
       return res.status(500).json({ error: "Error creating Custumer" });
     }
   }
+
+  async getAllCustomers(req, res) {
+    try {
+      const customers = await customerRepository.getAllCustomers();
+
+      res.status(200).json(customers);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send({ error: "Error while retrieving customers" });
+    }
+  }
+
+  async getByIdCustomer(req, res) {
+    try {
+        const {id} = req.params;
+        const customer = await customerRepository.getByIdCustomer(id);
+        res.status(200).json(customer);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send({error: "Error while retrieving customer"});
+    }
+  }
+
+  async deleteCustomer(req, res) {
+    try {
+        const { id } = req.params;
+        const deletedCustomer = await customerRepository.deleteCustomer(id);
+
+        res.status(200).json(deletedCustomer);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send({ error: 'Error while deleting the Customer' });
+    }
+  }
+
 }
 
 module.exports = CustomerController;

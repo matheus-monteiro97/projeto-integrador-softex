@@ -56,9 +56,34 @@ class EmployeeController {
                 res.status(200).json(employees);
             } catch (error) {
                 console.error(error.message);
-                res.status(500).send({error: "Erro ao obter funcionários"});
+                res.status(500).send({error: "Error while retrieving employees"});
             }
         }
+
+        async getByIdEmployee(req, res) {
+            try {
+                const {id} = req.params;
+                const employee = await employeeRepository.getByIdEmployee(id);
+                res.status(200).json(employee);
+            } catch (error) {
+                console.error(error.message);
+                res.status(500).send({error: "Error while retrieving employee"});
+            }
         }
+
+        async deleteEmployee(req, res) {
+            try {
+                const { id } = req.params;
+                const deletedEmployee = await employeeRepository.deleteEmployee(id);
+    
+                res.status(200).json(deletedEmployee);
+            } catch (error) {
+                console.error(error.message);
+                res.status(500).send({ error: 'Error while deleting the Employee' });
+            }
+        }
+        
+
+    }
 
 module.exports = EmployeeController;
