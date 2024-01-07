@@ -71,6 +71,20 @@ class EmployeeController {
             }
         }
 
+        async updateEmployee(req, res) {
+            try {
+                const {id} = req.params;
+                const data = req.body; // Assume que o corpo da solicitação é um JSON com os dados a serem atualizados
+    
+                const updatedEmployee = await employeeRepository.updateEmployee(id, data);
+    
+                res.json(updatedEmployee);
+            } catch (error) {
+                console.error(error.message);
+                res.status(500).json({ success: false, message:"Error updating employee." });
+            }
+        }
+
         async deleteEmployee(req, res) {
             try {
                 const { id } = req.params;
