@@ -51,7 +51,7 @@ class CalledController {
     }
   }
 
-  async getCalledById(req, res) {
+  async getByIdCalled(req, res) {
     try {
       const { id } = req.params;
       const called = await calledRepository.getByIdCalled(id);
