@@ -29,6 +29,24 @@ class CustomerRepository {
       throw new Error("Error retrieving all customers:", error.message);
     }
   };
+
+  static async getByIdCustomer(id) {
+    try {
+        const customer = await customerModel.customer.findAll({
+            where: { id },
+            include: [userModel.user],
+        });
+
+        if (!customer) {
+            throw new Error('Customer not found for the provided ID');
+        }
+
+        return customer;
+    } catch (error) {
+        console.error('Error while fetching the Customer:', error.message);
+        throw new Error('Error while fetching the Customer');
+    }
+}
 }
 
 module.exports = CustomerRepository;
