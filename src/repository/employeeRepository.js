@@ -47,6 +47,46 @@ class EmployeeRepository {
         }
     }
 
+    static async updateEmployee(id, data) {
+        try {
+            const employee = await employeeModel.employee.findOne({
+                where: { id },
+                include: [userModel.user],
+            });
+
+            if (!employee) {
+                throw new Error("Employee not found for the provided ID.");
+            }
+
+            // DADOS QUE PODEM SER ATUALIZADOS
+            const { name, phoneNumber, registrationNumber, role, isAdmin, emailAddress, password, isActive 
+            } = data;
+
+            // Acesso direto às informações do usuário associado
+            const user = employee.user;
+
+            // Atualizar os dados nas tabelas 'employee' e 'user'
+            await employee.update({
+                name,
+                phoneNumber,
+                registrationNumber,
+                role,
+                isAdmin,
+            });
+
+            await user.update({
+                emailAddress,
+                password,
+                isActive,
+            });
+
+            return { success: true, message: "Employee updated successfully." };
+        } catch (error) {
+            console.error("Error updating employee.", error.message);
+            return { success: false, message: "Error updating employee." };
+        }
+    }
+
     static async deleteEmployee(id) {
         const transaction = await database.transaction();
 
