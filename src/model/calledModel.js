@@ -1,6 +1,6 @@
 const sequelize = require("sequelize");
 const database = require("../../config/connectionDB");
-const customer = require("./CustomerModel");
+const customer = require("./customerModel");
 const employee = require("./employeeModel");
 
 class CalledModel {
