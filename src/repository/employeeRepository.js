@@ -27,6 +27,24 @@ class EmployeeRepository {
             throw new Error("Error retrieving all employees:" , error.message);
         }
     }
+
+    static async getByIdEmployee(id) {
+        try {
+            const employee = await employeeModel.employee.findOne({
+                where: { id },
+                include: [userModel.user],
+            });
+
+            if (!employee) {
+                throw new Error('Employee not found for the provided ID');
+            }
+
+            return employee;
+        } catch (error) {
+            console.error('Error while fetching the Employee:', error.message);
+            throw new Error('Error while fetching the Employee');
+        }
+    }
 }
 
 module.exports = EmployeeRepository;
