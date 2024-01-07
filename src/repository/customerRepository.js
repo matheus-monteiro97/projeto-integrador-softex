@@ -1,4 +1,5 @@
 const customerModel = require("../model/customerModel");
+const userModel = require ("../model/UserModel")
 
 class CustomerRepository {
   static createCustomer = async function (data) {
