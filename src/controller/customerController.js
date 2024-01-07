@@ -71,7 +71,19 @@ class CustomerController {
         console.error(error.message);
         res.status(500).send({error: "Error while retrieving customer"});
     }
-}
+  }
+
+  async deleteCustomer(req, res) {
+    try {
+        const { id } = req.params;
+        const deletedCustomer = await customerRepository.deleteCustomer(id);
+
+        res.status(200).json(deletedCustomer);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send({ error: 'Error while deleting the Customer' });
+    }
+  }
 
 }
 
