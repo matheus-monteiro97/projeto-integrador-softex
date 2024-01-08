@@ -1,7 +1,7 @@
 const sequelize = require("sequelize");
 const database = require("../../config/connectionDB");
-const customer = require("./customerModel");
-const employee = require("./employeeModel");
+const customerModel = require("./customerModel");
+const employeeModel = require("./employeeModel");
 
 class CalledModel {
   static called = database.define("caller", {
@@ -14,14 +14,14 @@ class CalledModel {
     customerId: {
       type: sequelize.INTEGER,
       references: {
-        model: customer,
+        model: customerModel.customer,
         key: "id",
       },
     },
     employeeId: {
       type: sequelize.INTEGER,
       references: {
-        model: employee,
+        model: employeeModel.employee,
         key: "id",
       },
     },
@@ -64,10 +64,10 @@ class CalledModel {
   });
 
   static associate() {
-    CalledModel.called.belongsTo(CustomerModel.customer, {
+    CalledModel.called.belongsTo(customerModel.customer, {
       foreignKey: "customerId",
     }),
-      CalledModel.called.belongsTo(EmployeeModel.employee, {
+      CalledModel.called.belongsTo(employeeModel.employee, {
         foreignKey: "employeeId",
       });
   }
