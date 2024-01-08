@@ -2,7 +2,7 @@ const userRepository = require("../repository/userRepository");
 const customerRepository = require("../repository/customerRepository");
 
 class CustomerController {
-  async createCustumer(req, res) {
+  async createCustomer(req, res) {
     try {
       const {
         emailAddress,
