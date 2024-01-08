@@ -3,6 +3,8 @@ const userModel = require("../model/UserModel");
 const database = require("../../config/connectionDB");
 
 class EmployeeRepository {
+
+    // FUNÇÃO PARA CRIAR FUNCIONÁRIOS
     static createEmployee = async function (data) {
         try {
             const newEmployee = await employeeModel.employee.create(data);

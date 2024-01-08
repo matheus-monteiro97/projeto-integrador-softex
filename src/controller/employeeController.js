@@ -25,9 +25,6 @@ class EmployeeController {
                     isActive,
                   });
 
-                // Chama o método createUser da classe pai (UserController)
-                // const newUser = await super.createUser(req, res);
-
                 // O Sequelize já atribuiu um valor ao id após a criação do usuário
                 const userId = newUser.id;
 
