@@ -25,9 +25,6 @@ class EmployeeController {
                     isActive,
                   });
 
-                // Chama o método createUser da classe pai (UserController)
-                // const newUser = await super.createUser(req, res);
-
                 // O Sequelize já atribuiu um valor ao id após a criação do usuário
                 const userId = newUser.id;
 
@@ -68,6 +65,20 @@ class EmployeeController {
             } catch (error) {
                 console.error(error.message);
                 res.status(500).send({error: "Error while retrieving employee"});
+            }
+        }
+
+        async updateEmployee(req, res) {
+            try {
+                const {id} = req.params;
+                const data = req.body; 
+    
+                const updatedEmployee = await employeeRepository.updateEmployee(id, data);
+    
+                res.json(updatedEmployee);
+            } catch (error) {
+                console.error(error.message);
+                res.status(500).json({ success: false, message:"Error updating employee." });
             }
         }
 

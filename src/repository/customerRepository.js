@@ -49,6 +49,47 @@ class CustomerRepository {
     }
  };
 
+ static async updateCustomer(id, data) {
+  try {
+      const customer = await customerModel.customer.findOne({
+          where: { id },
+          include: [userModel.user],
+      });
+
+      if (!customer) {
+          throw new Error("Customer not found for the provided ID.");
+      }
+
+      // DADOS QUE PODEM SER ATUALIZADOS
+      const { name, phoneNumber, nameCompany, addressCompany, role, department, emailAddress, password, isActive 
+      } = data;
+
+      // Acesso direto às informações do usuário associado
+      const user = customer.user;
+
+      // Atualizar os dados nas tabelas 'employee' e 'user'
+      await customer.update({
+          name,
+          phoneNumber,
+          nameCompany,
+          addressCompany,
+          role,
+          department
+      });
+
+      await user.update({
+          emailAddress,
+          password,
+          isActive,
+      });
+
+      return { success: true, message: "customer updated successfully." };
+  } catch (error) {
+      console.error("Error updating customer.", error.message);
+      return { success: false, message: "Error updating customer." };
+  }
+}
+
  static async deleteCustomer(id) {
   const transaction = await database.transaction();
 

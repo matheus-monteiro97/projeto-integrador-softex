@@ -3,6 +3,8 @@ const userModel = require("../model/UserModel");
 const database = require("../../config/connectionDB");
 
 class EmployeeRepository {
+
+    // FUNÇÃO PARA CRIAR FUNCIONÁRIOS
     static createEmployee = async function (data) {
         try {
             const newEmployee = await employeeModel.employee.create(data);
@@ -44,6 +46,46 @@ class EmployeeRepository {
         } catch (error) {
             console.error('Error while fetching the Employee:', error.message);
             throw new Error('Error while fetching the Employee');
+        }
+    }
+
+    static async updateEmployee(id, data) {
+        try {
+            const employee = await employeeModel.employee.findOne({
+                where: { id },
+                include: [userModel.user],
+            });
+
+            if (!employee) {
+                throw new Error("Employee not found for the provided ID.");
+            }
+
+            // DADOS QUE PODEM SER ATUALIZADOS
+            const { name, phoneNumber, registrationNumber, role, isAdmin, emailAddress, password, isActive 
+            } = data;
+
+            // Acesso direto às informações do usuário associado
+            const user = employee.user;
+
+            // Atualizar os dados nas tabelas 'employee' e 'user'
+            await employee.update({
+                name,
+                phoneNumber,
+                registrationNumber,
+                role,
+                isAdmin,
+            });
+
+            await user.update({
+                emailAddress,
+                password,
+                isActive,
+            });
+
+            return { success: true, message: "Employee updated successfully." };
+        } catch (error) {
+            console.error("Error updating employee.", error.message);
+            return { success: false, message: "Error updating employee." };
         }
     }
 
