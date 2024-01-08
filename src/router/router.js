@@ -6,7 +6,7 @@ const EmployeeController = require("../controller/employeeController");
 const employeeController = new EmployeeController();
 
 const CustomerController = require("../controller/customerController");
-const custumerController = new CustomerController();
+const customerController = new CustomerController();
 
 const CalledController = require("../controller/calledController");
 const calledController = new CalledController();
@@ -21,7 +21,7 @@ router.put("/employee/:id", employeeController.updateEmployee);
 router.delete("/employee/:id", employeeController.deleteEmployee);
 
 // CRUD CUSTUMER e USER
-router.post("/customer", customerController.createCustumer);
+router.post("/customer", customerController.createCustomer);
 router.get("/customer", customerController.getAllCustomers);
 router.get("/customer/:id", customerController.getByIdCustomer);
 router.put("/customer/:id",customerController.updateCustomer);
