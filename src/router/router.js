@@ -2,36 +2,47 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 
+const registrationMiddleware = require("../middleware/registrationMiddleware");
+// const authenticateMiddleware = require("../middleware/authenticateMiddleware");
+
+const UserController = require("../controller/userController");
+const userController = new UserController();
+
 const EmployeeController = require("../controller/employeeController");
 const employeeController = new EmployeeController();
 
 const CustomerController = require("../controller/customerController");
 const customerController = new CustomerController();
 
-const CalledController = require("../controller/calledController");
-const calledController = new CalledController();
+const TicketController = require("../controller/ticketController");
+const ticketController = new TicketController();
 
 router.use(bodyParser.json());
 
+//LOGIN e CRIAÇÃO DE USUÁRIOS
+router.post("/login", userController.login );
+router.post("/employee", registrationMiddleware.validateRegistration, employeeController.createEmployee);
+router.post("/customer", registrationMiddleware.validateRegistration, customerController.createCustomer);
+
+// router.use(authenticateMiddleware.authenticateJWT);
+
 // CRUD EMPLOYEE e USER
-router.post("/employee", employeeController.createEmployee);
 router.get("/employee", employeeController.getAllEmployees);
 router.get("/employee/:id", employeeController.getByIdEmployee);
-router.put("/employee/:id", employeeController.updateEmployee);
+router.put("/employee/:id", registrationMiddleware.validateRegistration, employeeController.updateEmployee);
 router.delete("/employee/:id", employeeController.deleteEmployee);
 
 // CRUD CUSTUMER e USER
-router.post("/customer", customerController.createCustomer);
 router.get("/customer", customerController.getAllCustomers);
 router.get("/customer/:id", customerController.getByIdCustomer);
-router.put("/customer/:id",customerController.updateCustomer);
+router.put("/customer/:id",registrationMiddleware.validateRegistration, customerController.updateCustomer);
 router.delete("/customer/:id", customerController.deleteCustomer);
 
 // CRUD CALLED
-router.post("/called", calledController.createCalled);
-router.get("/called", calledController.getAllCalleds);
-router.get("/called/:id", calledController.getByIdCalled);
-router.put("/called/:id", calledController.updateCalled);
-router.delete("/called/:id", calledController.deleteCalled);
+router.post("/ticket", ticketController.createTicket);
+router.get("/ticket", ticketController.getAllTickets);
+router.get("/ticket/:id", ticketController.getByIdTicket);
+router.put("/ticket/:id", ticketController.updateTicket);
+router.delete("/ticket/:id", ticketController.deleteTicket);
 
 module.exports = router;
