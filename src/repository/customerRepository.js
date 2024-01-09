@@ -1,6 +1,6 @@
 const customerModel = require("../model/customerModel");
-const userModel = require ("../model/UserModel");
-const database = require ("../../config/connectionDB");
+const userModel = require("../model/UserModel");
+const database = require("../../config/connectionDB");
 
 class CustomerRepository {
   static createCustomer = async function (data) {
@@ -33,35 +33,44 @@ class CustomerRepository {
 
   static async getByIdCustomer(id) {
     try {
-        const customer = await customerModel.customer.findAll({
-            where: { id },
-            include: [userModel.user],
-        });
-
-        if (!customer) {
-            throw new Error('Customer not found for the provided ID');
-        }
-
-        return customer;
-    } catch (error) {
-        console.error('Error while fetching the Customer:', error.message);
-        throw new Error('Error while fetching the Customer');
-    }
- };
-
- static async updateCustomer(id, data) {
-  try {
-      const customer = await customerModel.customer.findOne({
-          where: { id },
-          include: [userModel.user],
+      const customer = await customerModel.customer.findAll({
+        where: { id },
+        include: [userModel.user],
       });
 
       if (!customer) {
-          throw new Error("Customer not found for the provided ID.");
+        throw new Error("Customer not found for the provided ID");
+      }
+
+      return customer;
+    } catch (error) {
+      console.error("Error while fetching the Customer:", error.message);
+      throw new Error("Error while fetching the Customer");
+    }
+  }
+
+  static async updateCustomer(id, data) {
+    try {
+      const customer = await customerModel.customer.findOne({
+        where: { id },
+        include: [userModel.user],
+      });
+
+      if (!customer) {
+        throw new Error("Customer not found for the provided ID.");
       }
 
       // DADOS QUE PODEM SER ATUALIZADOS
-      const { name, phoneNumber, nameCompany, addressCompany, role, department, emailAddress, password, isActive 
+      const {
+        name,
+        phoneNumber,
+        nameCompany,
+        addressCompany,
+        role,
+        department,
+        emailAddress,
+        password,
+        isActive,
       } = data;
 
       // Acesso direto às informações do usuário associado
@@ -69,60 +78,65 @@ class CustomerRepository {
 
       // Atualizar os dados nas tabelas 'employee' e 'user'
       await customer.update({
-          name,
-          phoneNumber,
-          nameCompany,
-          addressCompany,
-          role,
-          department
+        name,
+        phoneNumber,
+        nameCompany,
+        addressCompany,
+        role,
+        department,
       });
 
       await user.update({
-          emailAddress,
-          password,
-          isActive,
+        emailAddress,
+        password,
+        //isActive,
       });
 
       return { success: true, message: "customer updated successfully." };
-  } catch (error) {
+    } catch (error) {
       console.error("Error updating customer.", error.message);
       return { success: false, message: "Error updating customer." };
+    }
   }
-}
 
- static async deleteCustomer(id) {
-  const transaction = await database.transaction();
+  static async deleteCustomer(id) {
+    const transaction = await database.transaction();
 
-  try {
+    try {
       const customer = await customerModel.customer.findOne({
-          where: { id },
-          include: [userModel.user],
-          transaction,
+        where: { id },
+        include: [userModel.user],
+        transaction,
       });
 
       if (!customer) {
-          throw new Error('Customer not found for the provided ID');
+        throw new Error("Customer not found for the provided ID");
       }
 
       // Excluir o Customer
       await customer.destroy({ transaction });
 
       // Excluir o User associado
-      const user = await userModel.user.findByPk(customer.userId, { transaction });
+      const user = await userModel.user.findByPk(customer.userId, {
+        transaction,
+      });
       await user.destroy({ transaction });
 
       // Commit da transação
       await transaction.commit();
 
       return customer;
-  } catch (error) {
+    } catch (error) {
       // Rollback em caso de erro
       await transaction.rollback();
 
-      console.error('Error while deleting the Employee and associated User:', error.message);
-      throw new Error('Error while deleting the Employee and associated User');
+      console.error(
+        "Error while deleting the Employee and associated User:",
+        error.message
+      );
+      throw new Error("Error while deleting the Employee and associated User");
+    }
   }
-}
 }
 
 module.exports = CustomerRepository;

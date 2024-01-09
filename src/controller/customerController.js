@@ -64,41 +64,56 @@ class CustomerController {
 
   async getByIdCustomer(req, res) {
     try {
-        const {id} = req.params;
-        const customer = await customerRepository.getByIdCustomer(id);
-        res.status(200).json(customer);
+      const { id } = req.params;
+      const customer = await customerRepository.getByIdCustomer(id);
+      res.status(200).json(customer);
     } catch (error) {
-        console.error(error.message);
-        res.status(500).send({error: "Error while retrieving customer"});
+      console.error(error.message);
+      res.status(500).send({ error: "Error while retrieving customer" });
     }
   }
 
   async updateCustomer(req, res) {
     try {
-        const {id} = req.params;
-        const data = req.body; 
+      const { id } = req.params;
+      const data = req.body;
 
-        const updatedCustomer = await customerRepository.updateCustomer(id, data);
+      const updatedCustomer = await customerRepository.updateCustomer(id, data);
 
-        res.json(updatedCustomer);
+      res.json(updatedCustomer);
     } catch (error) {
-        console.error(error.message);
-        res.status(500).json({ success: false, message:"Error updating customer." });
-    }
-}
-
-  async deleteCustomer(req, res) {
-    try {
-        const { id } = req.params;
-        const deletedCustomer = await customerRepository.deleteCustomer(id);
-
-        res.status(200).json(deletedCustomer);
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).send({ error: 'Error while deleting the Customer' });
+      console.error(error.message);
+      res
+        .status(500)
+        .json({ success: false, message: "Error updating customer." });
     }
   }
 
+  async deleteCustomer(req, res) {
+    try {
+      const { id } = req.params;
+      const deletedCustomer = await customerRepository.deleteCustomer(id);
+
+      res.status(200).json(deletedCustomer);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send({ error: "Error while deleting the Customer" });
+    }
+  }
+
+  async customerIsActive(req, res) {
+    try {
+      const { id } = req.params;
+      const customer = await customerRepository.getByIdCustomer(id);
+
+      this.customer.isActive = false;
+
+      res.status(200).json(customer);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send({ error: "Error while retrieving customer" });
+    }
+  }
 }
 
 module.exports = CustomerController;

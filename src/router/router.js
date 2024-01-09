@@ -20,12 +20,16 @@ router.get("/employee/:id", employeeController.getByIdEmployee);
 router.put("/employee/:id", employeeController.updateEmployee);
 router.delete("/employee/:id", employeeController.deleteEmployee);
 
+router.put("/employee/:id", employeeController.employeeIsActive);
+
 // CRUD CUSTUMER e USER
 router.post("/customer", customerController.createCustomer);
 router.get("/customer", customerController.getAllCustomers);
 router.get("/customer/:id", customerController.getByIdCustomer);
-router.put("/customer/:id",customerController.updateCustomer);
+router.put("/customer/:id", customerController.updateCustomer);
 router.delete("/customer/:id", customerController.deleteCustomer);
+
+router.put("/customer/:id", customerController.customerIsActive);
 
 // CRUD CALLED
 router.post("/called", calledController.createCalled);
