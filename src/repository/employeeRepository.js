@@ -1,5 +1,5 @@
 const employeeModel = require('../model/employeeModel');
-const userModel = require("../model/UserModel");
+const userModel = require("../model/userModel");
 const database = require("../../config/connectionDB");
 
 class EmployeeRepository {

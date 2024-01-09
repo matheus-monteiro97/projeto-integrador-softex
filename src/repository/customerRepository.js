@@ -1,5 +1,5 @@
 const customerModel = require("../model/customerModel");
-const userModel = require ("../model/UserModel");
+const userModel = require ("../model/userModel");
 const database = require ("../../config/connectionDB");
 
 class CustomerRepository {
