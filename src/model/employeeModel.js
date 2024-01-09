@@ -1,6 +1,6 @@
 const sequelize = require ("sequelize");
 const database = require ("../../config/connectionDB");
-const userModel = require("./UserModel");
+const userModel = require("./userModel");
 
 class EmployeeModel {
     static employee = database.define("employee", {
@@ -14,7 +14,7 @@ class EmployeeModel {
             type:sequelize.INTEGER,
             allowNull: false,
             references: {
-                model: userModel.model,
+                model: userModel.user,
                 key: "id",
             },
         },
@@ -48,43 +48,3 @@ class EmployeeModel {
 }
 
 module.exports = EmployeeModel;
-
-    // static createEmployee = async function (data) {
-    //     try {
-    //         const newEmployee = await this.employee.create(data);
-    //         return newEmployee;
-    //     } catch (error) {
-    //         throw new Error("Error creating Employee");
-    //     }
-    // };
-
-
-// class EmployeeModel extends UserModel {
-//     constructor () {
-//         super();
-//         this.employee = database.define ("employee", {
-//             id: {
-//                 type: Sequelize.INTEGER,
-//                 autoIncrement: true,
-//                 allowNull: false,
-//                 primaryKey: true,
-//             },
-//             registrationNumber: {
-//                 type: Sequelize.STRING(12),
-//                 allowNull: false,
-//             },
-//             role: {
-//                 type: Sequelize.STRING(15),
-//                 allowNull: false,                 
-//             },
-//             isActive: {
-//                 type: Sequelize.BOOLEAN,
-//                 allowNull: false,
-//             },
-//             isAdmin: {
-//                 type: Sequelize.BOOLEAN,
-//                 allowNull: false,
-//             },
-//         })
-//     }
-// }
