@@ -4,13 +4,14 @@ const router = require("./src/router/router");
 const database = require("./config/connectionDB");
 const employee = require("./src/model/employeeModel");
 const customer = require("./src/model/customerModel");
-const called = require("./src/model/calledModel");
+const ticket = require("./src/model/ticketModel");
+require("dotenv").config()
 
 app.use("/", router);
 
 employee.associate();
 customer.associate();
-called.associate();
+ticket.associate();
 
 database
   .sync()
