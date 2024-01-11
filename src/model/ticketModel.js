@@ -2,7 +2,6 @@ const sequelize = require("sequelize");
 const database = require("../../config/connectionDB");
 const customerModel = require("./customerModel");
 const employeeModel = require("./employeeModel");
-const userModel = require("./userModel");
 
 class TicketModel {
   static ticket = database.define("ticket", {
@@ -29,12 +28,8 @@ class TicketModel {
       },
     },
     openedById: {
-      type: sequelize.INTEGER,
+      type: sequelize.ENUM("Employee", "Customer"),
       allowNull: false,
-      references: {
-        model: userModel.user,
-        key: "id",
-      },
     },
     creationDate: {
       type: sequelize.DATE,
@@ -68,6 +63,7 @@ class TicketModel {
     statusTicket: {
       type: sequelize.ENUM("open", "progress", "close"),
       allowNull: false,
+      defaultValue: "open"
     },
     isActive: {
       type: sequelize.BOOLEAN,
@@ -82,9 +78,6 @@ class TicketModel {
     });
     TicketModel.ticket.belongsTo(employeeModel.employee, {
       foreignKey: "employeeId",
-    });
-    TicketModel.ticket.belongsTo(userModel.user, {
-      foreignKey: "openedById",
     });
   }
 }
