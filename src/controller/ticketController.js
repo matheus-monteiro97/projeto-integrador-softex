@@ -1,45 +1,17 @@
 const ticketRepository = require("../repository/ticketRepository");
 
 class TicketController {
-  async createTicket(req, res) {
+
+  async createTicketCustomer (req, res) {
     try {
-      const {
-        id,
-        idCustomer,
-        idEmployee,
-        creationDate,
-        closingDate,
-        titleTicket,
-        problem,
-        solution,
-        description,
-        priority,
-        statusTicket,
-        isActive,
-      } = req.body;
+      const {customerId} = req.params; 
+      const data = req.body; 
 
-      console.log("Received request with data:", req.body);
-
-      const newTicket = await ticketRepository.createTicket({
-        id,
-        idCustomer,
-        idEmployee,
-        creationDate,
-        closingDate,
-        titleTicket,
-        problem,
-        solution,
-        description,
-        priority,
-        statusTicket: "open",
-        isActive: true,
-      });
-
-      console.log("Ticket created:", newTicket);
-
-      return res.status(201).json(newTicket);
+      const newTicket = await ticketRepository.createTicketCustomer(customerId, data);
+      res.status(201).json(newTicket);
     } catch (error) {
-      return res.status(500).json({ error: "Error creating Ticket" });
+      console.error("Error creating ticket:", error.message);
+      res.status(500).json({ error: "Error creating ticket" });
     }
   }
 

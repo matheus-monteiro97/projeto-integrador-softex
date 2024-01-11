@@ -39,7 +39,8 @@ router.put("/customer/:id",registrationMiddleware.validateRegistration, customer
 router.delete("/customer/:id", customerController.deleteCustomer);
 
 // CRUD CALLED
-router.post("/ticket", ticketController.createTicket);
+router.post("/ticketCustomer/:customerId", ticketController.createTicketCustomer)
+// router.post("/ticket", ticketController.createTicket);
 router.get("/ticket", ticketController.getAllTickets);
 router.get("/ticket/:id", ticketController.getByIdTicket);
 router.put("/ticket/:id", ticketController.updateTicket);

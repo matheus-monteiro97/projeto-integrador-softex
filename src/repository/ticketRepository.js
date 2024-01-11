@@ -4,15 +4,39 @@ const ticketModel = require("../model/ticketModel");
 const database = require("../../config/connectionDB");
 
 class TicketRepository {
-  static createTicket = async function (data) {
+
+  static createTicketCustomer = async function (customerId, data) {
     try {
-      const newTicket = await ticketModel.ticket.create(data);
-      return newTicket;
+        const {titleTicket, description} = data
+
+        const customer = await customerModel.customer.findByPk(customerId)
+
+        if (!customer) {
+          throw new Error(`Customer with id ${customerId} does not exist.`);
+        }
+
+        const openedById = "Customer" 
+
+        const newTicketCustomer = await ticketModel.ticket.create({
+          customerId, openedById, titleTicket, description
+        })
+
+        return newTicketCustomer;
     } catch (error) {
-      console.error("Error creating Ticket:", error.message);
-      throw new Error("Error creating Ticket");
-    }
-  };
+        console.error("Error creating Ticket:", error.message);
+        throw new Error("Error creating Ticket");
+    }  
+  }
+
+  // static createTicket = async function (data) {
+  //   try {
+  //     const newTicket = await ticketModel.ticket.create(data);
+  //     return newTicket;
+  //   } catch (error) {
+  //     console.error("Error creating Ticket:", error.message);
+  //     throw new Error("Error creating Ticket");
+  //   }
+  // };
 
   static async getAllTickets() {
     try {
