@@ -54,7 +54,7 @@ class TicketRepository {
           throw new Error(`Customer with id ${customerId} does not exist.`);
         }
 
-        const openedById = "Customer" 
+        const openedBy = "Customer" 
 
         const newTicketCustomer = await ticketModel.ticket.create({
           customerId, openedBy, titleTicket, description
