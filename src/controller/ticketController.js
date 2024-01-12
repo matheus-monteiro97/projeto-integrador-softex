@@ -2,6 +2,19 @@ const ticketRepository = require("../repository/ticketRepository");
 
 class TicketController {
 
+  async createTicketEmployee (req, res) {
+    try {
+      const {employeeId} = req.params; 
+      const data = req.body; 
+
+      const newTicket = await ticketRepository.createTicketEmployee(employeeId, data);
+      res.status(201).json(newTicket);
+    } catch (error) {
+      console.error("Error creating ticket:", error.message);
+      res.status(500).json({ error: "Error creating ticket" });
+    }
+  }
+
   async createTicketCustomer (req, res) {
     try {
       const {customerId} = req.params; 
