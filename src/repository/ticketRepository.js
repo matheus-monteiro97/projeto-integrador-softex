@@ -5,6 +5,45 @@ const database = require("../../config/connectionDB");
 
 class TicketRepository {
 
+  static createTicketEmployee = async function (employeeId, data) {
+      try {
+        const {customerId, closingDate ,titleTicket, problem, solution, description, priority, statusTicket } = data
+        const employee = await employeeModel.employee.findByPk(employeeId)
+
+        if (!employee) {
+          throw new Error(`Employee with id ${employeeId} does not exist.`);
+        }
+        const openedBy = "Employee"
+
+        const customer = await customerModel.customer.findByPk(customerId)
+
+        if (!customer) {
+          throw new Error(`Customer with id ${customerId} does not exist.`);
+        }
+
+        if (statusTicket === "close") {
+          if (!problem || !solution || !closingDate) {
+            throw new Error("Fields 'problem', 'solution' and 'closingDate' are required when statusTicket is 'close'.");
+          }
+        }
+
+        if (statusTicket !== "close") {
+          if (solution || closingDate) {
+              throw new Error("Closing date and solution can only be filled in when the ticket status is closed.")
+          }
+        }
+
+        const newTicketEmployee = await ticketModel.ticket.create({
+          customerId, employeeId, openedBy, closingDate, titleTicket, problem, solution, description, priority, statusTicket 
+        })
+
+        return newTicketEmployee
+      } catch (error) {
+        console.error("Error creating Ticket:", error.message);
+        throw new Error("Error creating Ticket");
+      }
+  }
+
   static createTicketCustomer = async function (customerId, data) {
     try {
         const {titleTicket, description} = data
@@ -18,7 +57,7 @@ class TicketRepository {
         const openedById = "Customer" 
 
         const newTicketCustomer = await ticketModel.ticket.create({
-          customerId, openedById, titleTicket, description
+          customerId, openedBy, titleTicket, description
         })
 
         return newTicketCustomer;
@@ -27,16 +66,6 @@ class TicketRepository {
         throw new Error("Error creating Ticket");
     }  
   }
-
-  // static createTicket = async function (data) {
-  //   try {
-  //     const newTicket = await ticketModel.ticket.create(data);
-  //     return newTicket;
-  //   } catch (error) {
-  //     console.error("Error creating Ticket:", error.message);
-  //     throw new Error("Error creating Ticket");
-  //   }
-  // };
 
   static async getAllTickets() {
     try {
