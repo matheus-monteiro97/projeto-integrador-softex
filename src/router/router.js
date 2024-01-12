@@ -40,7 +40,7 @@ router.delete("/customer/:id", customerController.deleteCustomer);
 
 // CRUD CALLED
 router.post("/ticketCustomer/:customerId", ticketController.createTicketCustomer)
-// router.post("/ticket", ticketController.createTicket);
+router.post("/ticketEmployee/:employeeId", ticketController.createTicketEmployee);
 router.get("/ticket", ticketController.getAllTickets);
 router.get("/ticket/:id", ticketController.getByIdTicket);
 router.put("/ticket/:id", ticketController.updateTicket);
