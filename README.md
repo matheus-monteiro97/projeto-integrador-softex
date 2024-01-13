@@ -1,4 +1,5 @@
 <img src="/imagens/fapDesk.png">
+
 O **Fap Desk** é um serviço de atendimento ao cliente que possui como característica primordial a centralização de solicitações em uma única plataforma virtual facilitando o gerenciamento de chamados.
 A ideia se baseia no funcionamento de um software help desk permitindo que os chamados sejam classificados em ordem de importância. Priorizando sempre as solicitações mais urgentes.
 
