@@ -123,15 +123,18 @@ A estrutura do FAP Desk se dará da seguinte forma:
 
 </div>
 
-## Acesso ao projeto: 📁 **FINALIZAR**
+## Rodar projeto localmente: 🛠️ 
 
--> Como baixar o projeto;
+1.  Para baixar o projeto em ambiente local, acesse o terminal de sua preferência e insira o comando:
 
--> Link da aplicação em nuvem;
+                            git clone https://github.com/matheus-monteiro97/projeto-integrador-softex.git
 
-## Abrir e rodar o projeto: 🛠️ **FINALIZAR**
+2. Para rodar o projeto em sua máquina use o comando:
+   
+                                                          node app.js
+   
+📌 **ATENÇÃO:** Talvez seja necessário instalar localmente algumas das bibliotecas do package.json para que o projeto startar de forma adequada!!! 
 
-Nesse campo pode ser descrito um pequeno tutorial de como terceiros podem startar a aplicação (indicar as bibliotecas que precisam ser baixadas por exemplo)
 
 ## Equipe Técnica: 👨‍💻 👩‍💻
 
