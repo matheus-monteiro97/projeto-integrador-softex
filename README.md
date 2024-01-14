@@ -83,9 +83,9 @@ A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de 
 
 A estrutura do FAP Desk se dará da seguinte forma:
 
-1. Classe abstrata **User**;
-2. Classes **Customer** e **Employee** que herdam as características de **User**;
-3. Classe **Called** se relaciona com a classe **Customer** através de _composição_ e com a classe **Employee** atavés de _agregação_;
+1. Classe **User**;
+2. Classes **Customer** e **Employee** se relacionam com **User** _composição_ por;
+3. Classe **Ticket** se relaciona com a classe **Customer** através de _composição_ e com a classe **Employee** atavés de _agregação_;
 </div>
 
 <img align="middle" src="/imagens/Diagrama UML fapdesk.png">
