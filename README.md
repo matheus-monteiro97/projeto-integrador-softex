@@ -1,4 +1,5 @@
 <img src="/imagens/fapDesk.png">
+
 O **Fap Desk** é um serviço de atendimento ao cliente que possui como característica primordial a centralização de solicitações em uma única plataforma virtual facilitando o gerenciamento de chamados.
 A ideia se baseia no funcionamento de um software help desk permitindo que os chamados sejam classificados em ordem de importância. Priorizando sempre as solicitações mais urgentes.
 
@@ -82,12 +83,12 @@ A **Fap Desk** é uma aplicação Back-End idealizada para atender o padrão de 
 
 A estrutura do FAP Desk se dará da seguinte forma:
 
-1. Classe abstrata **User**;
-2. Classes **Customer** e **Employee** que herdam as características de **User**;
-3. Classe **Called** se relaciona com a classe **Customer** através de _composição_ e com a classe **Employee** atavés de _agregação_;
+1. Classe **User**;
+2. Classes **Customer** e **Employee** se relacionam com por **User** _composição_;
+3. Classe **Ticket** se relaciona com a classe **Customer** através de _composição_ e com a classe **Employee** atavés de _agregação_;
 </div>
 
-<img align="middle" src="/imagens/Diagrama UML fapdesk.png">
+<img align="middle" src="/imagens/Diagramas UML fapdesk.png">
 
 ## Tecnologias utilizadas: 🛠️
 
@@ -122,22 +123,24 @@ A estrutura do FAP Desk se dará da seguinte forma:
 
 </div>
 
-## Acesso ao projeto: 📁 **FINALIZAR**
+## Rodar projeto localmente: 🛠️ 
 
--> Como baixar o projeto;
+1.  Para baixar o projeto em ambiente local, acesse o terminal de sua preferência e insira o comando:
 
--> Link da aplicação em nuvem;
+                            git clone https://github.com/matheus-monteiro97/projeto-integrador-softex.git
 
-## Abrir e rodar o projeto: 🛠️ **FINALIZAR**
+2. Para rodar o projeto em sua máquina use o comando:
+   
+                                                          node app.js
+   
+📌 **ATENÇÃO:** Talvez seja necessário instalar localmente algumas das bibliotecas do package.json para que o projeto startar de forma adequada!!! 
 
-Nesse campo pode ser descrito um pequeno tutorial de como terceiros podem startar a aplicação (indicar as bibliotecas que precisam ser baixadas por exemplo)
 
 ## Equipe Técnica: 👨‍💻 👩‍💻
 
 |                              Perfil                               |        Nome        |                       Função                       |                                                                                       Github                                                                                       |                                                                   Linkedin                                                                    |
 | :---------------------------------------------------------------: | :----------------: | :------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: |
 | <img width="100" alt="Foto Advalker" src="imagens/advalker.jpeg"> |  `Advalker Souto`  | Analista de Requisitos <br> Desenvolvedor Back-end |     <a href="https://github.com/Advalker"> <img height="80" alt="GitHub Advalker" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a>      | <a href= "https://www.linkedin.com/in/advalker-l-s-maior-5436a520a/"><img height="80" alt="linkedin Advalker" src="imagens/linkedln.png"></a> |
-|  <img width="100" alt="Foto Matheus" src="imagens/Daniela.jpeg">  |  `Daniela Xavier`  |  Gerente de Projetos <br> Desenvolvedor Back-end   | <a href="https://github.com/DanielaXavier1995"> <img height="80" alt="GitHub Daniela" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a>  |          <a href= "https://www.linkedin.com/in/dani-xavier/"><img height="80" alt="linkedin Matheus" src="imagens/linkedln.png"></a>          |
+|  <img width="100" alt="Foto Daniela" src="imagens/Daniela.jpeg">  |  `Daniela Xavier`  |  Gerente de Projetos <br> Desenvolvedor Back-end   | <a href="https://github.com/DanielaXavier1995"> <img height="80" alt="GitHub Daniela" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a>  |          <a href= "https://www.linkedin.com/in/dani-xavier/"><img height="80" alt="linkedin Matheus" src="imagens/linkedln.png"></a>          |
 |     <img width="100" alt="Foto Luiz" src="imagens/luiz.jpeg">     |   `Luiz Cláudio`   |          Desenvolvedor Back-end <br> Q.A           |   <a href="https://github.com/LuizClaudioPestana"><img height="80" alt="GitHub Luiz" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a>   |        <a href= "https://www.linkedin.com/in/luizclaudiopestana/"><img height="80" alt="linkedin Luiz" src="imagens/linkedln.png"></a>        |
-|  <img width="100" alt="Foto Marcelo" src="imagens/marcelo.jpeg">  | `Marcelo Mendonça` |            Desenvolvedor <br> Back-end             |    <a href="https://github.com/mclmendonca"> <img height="80" alt="GitHub Marcelo" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a>     |                              <a href=""> <img height="80" alt="linkedin Marcelo" src="imagens/linkedln.png"></a>                              |
 |  <img width="100" alt="Foto Matheus" src="imagens/Matheus.jpg">   | `Matheus Monteiro` |       Teach Lead <br> Desenvolvedor Back-end       | <a href="https://github.com/matheus-monteiro97"> <img height="80" alt="GitHub Matheus" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> |      <a href= "https://www.linkedin.com/in/matheus-monteiro97/"><img height="80" alt="linkedin Matheus" src="imagens/linkedln.png"></a>       |
