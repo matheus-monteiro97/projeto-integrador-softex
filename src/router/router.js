@@ -43,7 +43,9 @@ router.post("/ticketCustomer/:customerId", ticketController.createTicketCustomer
 router.post("/ticketEmployee/:employeeId", ticketController.createTicketEmployee);
 router.get("/ticket", ticketController.getAllTickets);
 router.get("/ticket/:id", ticketController.getByIdTicket);
-router.put("/ticket/:id", ticketController.updateTicket);
+router.put("/ticketCustomer/:id", ticketController.updateTicketCustomer);
+router.put("/ticketEmployee/:id", ticketController.updateTicketEmployee)
+// router.put("/ticket/:id", ticketController.updateTicket);
 router.delete("/ticket/:id", ticketController.deleteTicket);
 
 module.exports = router;
